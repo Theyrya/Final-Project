@@ -3,39 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final-Project</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href=link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,900&display=swap" rel="stylesheet">
-
+    <title>Studio Listings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="header">
+
+    <header class="header">
         <nav>
-            <a href="tommy-kwak-Ta3OhYMKCvA-unsplash.jpg"></a>
-            <p>fdgeyt</p>
-            
-            <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
+            <img src="logo.png" alt="Company Logo">
+            <div class="nav-links">
                 <ul>
-                    
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="course.html">Studious</a></li>
-                    <li><a href="calendar.html">My Faves</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="#">Studios</a></li>
+                    <li><a href="#">My Faves ❤️</a></li>
+                    <li><a href="#"><span class="icon">🔔</span></a></li>
+                    <li><a href="#"><span class="icon">👤</span></a></li>
+                    <li><a href="#"><span class="icon">⚙️</span></a></li>
                 </ul>
             </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
-        <div class="text-box">
-            <h1>Name of Our Company</h1>
-            <p>Find the best studious in Area</p>
-            <a href="" class="hero-btn">Search to know more</a>
-        </div>
 
+        <div class="text-box">
+            <h1>Find Your Perfect Studio</h1>
+            <p>Search and book the best studio spaces available in your city.</p>
+            <input type="text" class="search-box" placeholder="Search location...">
+            <button class="hero-btn">Filters</button>
+        </div>
+    </header>
+
+    <section class="studio-list">
+        <div class="studio">
+            <img src="studio.jpg" alt="Studio Image">
+            <h3>Studio Name</h3>
+            <p>Rent per Day: $100</p>
+            <p>Location: Calgary</p>
+            <button class="fav-btn">❤️ Add to My Faves</button>
+        </div>
+        
+
+        <!-- Add more studio listings here -->
     </section>
-    
+
+    <footer class="footer">
+        <h4>About Us</h4>
+        <p>Find and book the best studios at affordable prices.</p>
+    </footer>
+
 </body>
 </html>
