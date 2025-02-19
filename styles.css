@@ -1,0 +1,167 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Gradient background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header */
+.header {
+    min-height: 10vh;
+    width: 100%;
+    background: url('background.jpg') no-repeat center center/cover, 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    position: relative;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    padding: 2% 6%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav img {
+    width: 150px;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links ul li {
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+/* Studio Listings - 3 boxes per row */
+.studio-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to a new row */
+    justify-content: center; /* Centers items */
+    gap: 20px; /* Space between items */
+    width: 80%;
+    margin: auto;
+    padding: 50px 0;
+}
+
+.studio {
+    width: calc(33.33% - 40px); /* 3 items per row */
+    max-width: 300px; /* Ensures consistency */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.studio img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.studio h3 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.studio p {
+    font-size: 16px;
+    color: #555;
+}
+
+.studio:hover {
+    transform: scale(1.05);
+}
+
+/* Favorite Button */
+.fav-btn {
+    display: inline-block;
+    background: #ff4757; /* Red color for visibility */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+    width: 80%;
+}
+
+.fav-btn:hover {
+    background: #e84118; /* Slightly darker red on hover */
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    background: #222;
+    color: white;
+    margin-top: 50px;
+}
+
+.footer h4 {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+
+/* Adjust to two columns on smaller screens */
+@media (max-width: 900px) {
+    .studio {
+        width: calc(50% - 40px); /* 2 items per row */
+    }
+}
+
+/* Adjust to one column on mobile screens */
+@media (max-width: 600px) {
+    .studio {
+        width: 100%; /* Full width */
+    }
+}
