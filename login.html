@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Log in</h2>
+        <p>Enter your email to continue</p>
+        <input id="input" type="email" name="email" placeholder="Enter your email" required>
+        
+        <button type="submit" onclick="redirectToHome(event)">Login</button>
+        Don't have an Account? <a href="Signup.html">Sign Up</a>
+    </div>
+
+
+    <script>
+
+
+        function redirectToHome(event) {
+
+            window.location.href = "index.html";
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
