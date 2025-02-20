@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Listings</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signup.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+
+    </style>
+
 </head>
+
 <body>
+    <div class="login-container">
+        <h2>Sign Up</h2>
+        <p>Enter your email to continue</p>
+        <input id="input" type="email" name="email" placeholder="Enter your email" required>
+        <input type="text" name="firstname" placeholder="Enter your firstname" required>
+        <input type="text" name="lastname" placeholder="Enter your lastname" required>
+        <input type="number" name="mobilenumber" placeholder="Enter your mobile number" required>
+        <input type="date" name="DOB" placeholder="Enter your date of birth" required>
+        <input type="text" name="Address" placeholder="Enter your adress" required>
+        <button type="submit" onclick="redirectToHome(event)">Sign Up</button>
+        Already have an Account? <a href="login.html">Login</a>
+    </div>
 
-    <header class="header">
-        <nav>
-            <img src="logo.png" alt="Company Logo">
-            <div class="nav-links">
-                <ul>
-                    <li><a href="index1.html">My Faves ❤️</a></li>
-                    <li><a href="#"><span class="icon">🔔</span></a></li>
-                    <li><a href="#"><span class="icon">👤</span></a></li>
-                    <li><a href="#"><span class="icon">⚙️</span></a></li>
-                </ul>
-            </div>
-        </nav>
 
-        <div class="text-box">
-            <h1>Find Your Perfect Studio</h1>
-            <p>Search and book the best studio spaces available in your city.</p>
-            <input type="text" class="search-box" placeholder="Search location...">
-            <button class="hero-btn">Filters</button>
-        </div>
-    </header>
+    <script>
 
-    <section class="studio-list">
-        <div class="studio">
-            <img src="studio.jpg" alt="Studio Image">
-            <h3>Studio Name</h3>
-            <p>Rent per Day: $100</p>
-            <p>Location: Calgary</p>
-            <button class="fav-btn">❤️ Add to My Faves</button>
-        </div>
-        
 
-        <!-- Add more studio listings here -->
-    </section>
+        function redirectToHome(event) {
 
-    <footer class="footer">
-        <h4>About Us</h4>
-        <p>Find and book the best studios at affordable prices.</p>
-    </footer>
+            const person = {
 
+                email: $("input[name='email']").val(),
+                firstname: $("input[name='firstname']").val(),
+                lastname: $("input[name='lastname']").val(),
+                mobileNo: $("input[name='mobilenumber']").val(),
+                dob: $("input[name='DOB']").val(),
+                address: $("input[name='Address']").val(),
+
+            }
+
+            console.log(`Your mail is ${person.email}, Your name is ${person.firstname} ${person.lastname}, Your mobile number is ${person.mobileNo}, Your Date of DOB is ${person.dob}, And your address is ${person.address}.`)
+
+            window.location.href = "Home.html";
+
+        }
+
+
+
+
+
+
+
+
+    </script>
 </body>
+
 </html>
