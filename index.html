@@ -20,238 +20,118 @@
     <div class="login-container">
         <h2>Sign Up</h2>
         <p>Enter your email to continue</p>
-        <p>Copy this email: john.doe@gmail.com to enter the renter site</p>
-        <p>Copy this email: ethan.taylor@gmail.com to enter the owner site</p>
         <input id="input" type="email" name="email" placeholder="Enter your email" required>
         <input type="text" name="firstname" placeholder="Enter your firstname" required>
         <input type="text" name="lastname" placeholder="Enter your lastname" required>
+
         <input type="number" name="mobilenumber" placeholder="Enter your mobile number" required>
         <input type="date" name="DOB" placeholder="Enter your date of birth" required>
         <input type="text" name="Address" placeholder="Enter your adress" required>
+        <label for="designation">Who are you:</label>
+        <select id="designation" name="designation">
+            <option value="renter">Renter</option>
+            <option value="owner">Owner</option>
+        </select>
         <button type="submit" onclick="redirectToHome(event)">Sign Up</button>
         Already have an Account? <a href="login.html">Login</a>
     </div>
 
 
     <script>
-
-
         function redirectToHome(event) {
-
-            let checkingmail = $("input[name='email']").val();
-            checkingmail = checkingmail.split("");
-
-
-
-            const people = [
+            event.preventDefault();
+            let renters = JSON.parse(localStorage.getItem("renters")) || [
                 {
+                    email: "john.doe@gmail.com",
                     firstName: "John",
                     lastName: "Doe",
-                    email: "john.doe@gmail.com",
                     mobile: "+1 555-123-4567",
                     dob: "15-05-1990",
                     address: "123 Maple Street, New York, NY, USA"
-                },
-                {
-                    firstName: "Emma",
-                    lastName: "Smith",
-                    email: "emma.smith@gmail.com",
-                    mobile: "+1 555-234-5678",
-                    dob: "22-09-1988",
-                    address: "456 Oak Avenue, Los Angeles, CA, USA"
-                },
-                {
-                    firstName: "Liam",
-                    lastName: "Johnson",
-                    email: "liam.johnson@gmail.com",
-                    mobile: "+1 555-345-6789",
-                    dob: "11-02-1995",
-                    address: "789 Pine Road, Chicago, IL, USA"
-                },
-                {
-                    firstName: "Olivia",
-                    lastName: "Brown",
-                    email: "olivia.brown@gmail.com",
-                    mobile: "+1 555-456-7890",
-                    dob: "30-07-1992",
-                    address: "101 Cedar Lane, Houston, TX, USA"
-                },
-                {
-                    firstName: "Noah",
-                    lastName: "Williams",
-                    email: "noah.williams@gmail.com",
-                    mobile: "+1 555-567-8901",
-                    dob: "05-11-1985",
-                    address: "202 Birch Street, Phoenix, AZ, USA"
-                },
-                {
-                    firstName: "Ava",
-                    lastName: "Davis",
-                    email: "ava.davis@gmail.com",
-                    mobile: "+1 555-678-9012",
-                    dob: "14-03-1998",
-                    address: "303 Redwood Blvd, San Diego, CA, USA"
-                },
-                {
-                    firstName: "James",
-                    lastName: "Miller",
-                    email: "james.miller@gmail.com",
-                    mobile: "+1 555-789-0123",
-                    dob: "21-06-1983",
-                    address: "404 Spruce Drive, Dallas, TX, USA"
-                },
-                {
-                    firstName: "Sophia",
-                    lastName: "Wilson",
-                    email: "sophia.wilson@gmail.com",
-                    mobile: "+1 555-890-1234",
-                    dob: "09-08-1991",
-                    address: "505 Elm Court, Seattle, WA, USA"
-                },
-                {
-                    firstName: "Benjamin",
-                    lastName: "Moore",
-                    email: "benjamin.moore@gmail.com",
-                    mobile: "+1 555-901-2345",
-                    dob: "25-12-1987",
-                    address: "606 Chestnut Avenue, Denver, CO, USA"
-                },
-                {
-                    firstName: "Mia",
-                    lastName: "Anderson",
-                    email: "mia.anderson@gmail.com",
-                    mobile: "+1 555-012-3456",
-                    dob: "17-04-1996",
-                    address: "707 Walnut Lane, Miami, FL, USA"
                 }
             ];
-            const people1 = [
+
+            let owners = JSON.parse(localStorage.getItem("owners")) || [
                 {
+                    email: "ethan.taylor@gmail.com",
                     firstName: "Ethan",
                     lastName: "Taylor",
-                    email: "ethan.taylor@gmail.com",
                     mobile: "+1 555-111-2233",
                     dob: "10-01-1992",
                     address: "111 Maple Avenue, San Francisco, CA, USA"
-                },
-                {
-                    firstName: "Charlotte",
-                    lastName: "Harris",
-                    email: "charlotte.harris@gmail.com",
-                    mobile: "+1 555-222-3344",
-                    dob: "25-06-1987",
-                    address: "222 Oak Street, Boston, MA, USA"
-                },
-                {
-                    firstName: "Mason",
-                    lastName: "Clark",
-                    email: "mason.clark@gmail.com",
-                    mobile: "+1 555-333-4455",
-                    dob: "15-03-1994",
-                    address: "333 Pine Lane, Austin, TX, USA"
-                },
-                {
-                    firstName: "Amelia",
-                    lastName: "Lewis",
-                    email: "amelia.lewis@gmail.com",
-                    mobile: "+1 555-444-5566",
-                    dob: "08-12-1990",
-                    address: "444 Cedar Avenue, Atlanta, GA, USA"
-                },
-                {
-                    firstName: "Lucas",
-                    lastName: "Walker",
-                    email: "lucas.walker@gmail.com",
-                    mobile: "+1 555-555-6677",
-                    dob: "19-07-1985",
-                    address: "555 Birch Road, Portland, OR, USA"
-                },
-                {
-                    firstName: "Harper",
-                    lastName: "Hall",
-                    email: "harper.hall@gmail.com",
-                    mobile: "+1 555-666-7788",
-                    dob: "30-05-1996",
-                    address: "666 Redwood Street, Miami, FL, USA"
-                },
-                {
-                    firstName: "Alexander",
-                    lastName: "Allen",
-                    email: "alexander.allen@gmail.com",
-                    mobile: "+1 555-777-8899",
-                    dob: "22-09-1983",
-                    address: "777 Spruce Court, Denver, CO, USA"
-                },
-                {
-                    firstName: "Ella",
-                    lastName: "Young",
-                    email: "ella.young@gmail.com",
-                    mobile: "+1 555-888-9900",
-                    dob: "05-04-1991",
-                    address: "888 Elm Drive, Seattle, WA, USA"
-                },
-                {
-                    firstName: "Daniel",
-                    lastName: "King",
-                    email: "daniel.king@gmail.com",
-                    mobile: "+1 555-999-0011",
-                    dob: "28-02-1989",
-                    address: "999 Chestnut Boulevard, Chicago, IL, USA"
-                },
-                {
-                    firstName: "Scarlett",
-                    lastName: "Scott",
-                    email: "scarlett.scott@gmail.com",
-                    mobile: "+1 555-000-1122",
-                    dob: "17-11-1997",
-                    address: "000 Walnut Lane, New York, NY, USA"
                 }
             ];
 
-            console.log(people);
-
-
-
             const person = {
-
                 email: $("input[name='email']").val(),
-                firstname: $("input[name='firstname']").val(),
-                lastname: $("input[name='lastname']").val(),
-                mobileNo: $("input[name='mobilenumber']").val(),
+                firstName: $("input[name='firstname']").val(),
+                lastName: $("input[name='lastname']").val(),
+                mobile: $("input[name='mobilenumber']").val(),
                 dob: $("input[name='DOB']").val(),
                 address: $("input[name='Address']").val(),
+            };
 
-            }
-
-            // console.log(`Your mail is ${person.email}, Your name is ${person.firstname} ${person.lastname}, Your mobile number is ${person.mobileNo}, Your Date of DOB is ${person.dob}, And your address is ${person.address}.`)
-
-            for (let i = 0; i <= people.length; i++) {
-                if (people[i].email == person.email) {
-                    window.location.href = "Home.html";
-                } else {
-                    for (let i = 0; i <= people1.length; i++) {
-                        if (people1[i].email == person.email) {
-                            window.location.href = "owner.html";
-                        }
-                    }
-
+            const alreadyExists = renters.some(obj => {
+                if (obj.email === person.email) {
+                    alert("Already have an account! Login");
+                    return true; 
                 }
+            });
+
+            if (alreadyExists) return; 
+            
+
+
+            let selectedValue = $("#designation").val();
+
+            if (selectedValue === "renter") {
+                renters.push(person);
+                localStorage.setItem("renters", JSON.stringify(renters));
+            } else if (selectedValue === "owner") {
+                owners.push(person);
+                localStorage.setItem("owners", JSON.stringify(owners));
             }
 
+            renters = JSON.parse(localStorage.getItem("renters"));
+            owners = JSON.parse(localStorage.getItem("owners"));
+            
+
+            console.log("Updated Renters:", JSON.parse(localStorage.getItem("renters")));
+
+            
 
 
 
 
+            // ✅ Show alert so you can see the renters array before redirection
+            // alert("Check console before redirection!");
+
+            
+                        for (let i = 0; i < renters.length; i++) {
+                            if (renters[i].email === person.email) {
+                                window.location.href = "Home.html";
+                                return;
+                            }
+                        }
+            
+            
+                        for (let i = 0; i < owners.length; i++) {
+                            if (owners[i].email === person.email) {
+                                window.location.href = "owner.html";
+                                return;
+                            }
+                        }
+                        
+                        
+                        alert("User not found. Please sign up!");
+                        
+                        
+                        
         }
 
 
-
-
-
-
-
-
     </script>
+
 </body>
 
 </html>
