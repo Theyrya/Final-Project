@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Studio Listings</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome my dear owners</h1>
+
+    <header class="header">
+        <nav>
+            <img src="home_logo.png" alt="Company Logo" style="height: 60px; width: 60px;">
+            <div class="nav-links">
+                <ul>
+                    <li><a href="Myfaves.html">Your studios</a></li>
+                    <li><a href="#"><span class="icon">🔔</span></a></li>
+                    <li><a href="#"><span class="icon">👤</span></a></li>
+                    <li><a href="#"><span class="icon">⚙️</span></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="text-box">
+            <h1>Find Your Perfect Studio</h1>
+            <p>Search and book the best studio spaces available in your city.</p>
+            <input type="text" class="search-box" placeholder="Search location...">
+            <button class="hero-btn">Filters</button>
+        </div>
+    </header>
+
+    <section class="studio-list">
+        <div class="studio">
+            <img src="studio.jpg" alt="Studio Image">
+            <h3>Studio Name</h3>
+            <p>Rent per Day: $100</p>
+            <p>Location: Calgary</p>
+            <button class="fav-btn">❤️ Add to My Faves</button>
+        </div>
+        
+
+        <!-- Add more studio listings here -->
+    </section>
+
+    <footer class="footer">
+        <h4>About Us</h4>
+        <p>Find and book the best studios at affordable prices.</p>
+    </footer>
+
 </body>
 </html>

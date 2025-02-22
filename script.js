@@ -103,26 +103,25 @@ let owners = JSON.parse(localStorage.getItem("owners")) || [
                 
                 
 }
-function SubmitFuncLogin(event) {
+function SubmitFuncLogin(_event) {
 
     let email = $("input[name='email']").val();
     
     for(let i = 0; i<renters.length; i++){
         if(email == renters[i].email){
             window.location.href = "Home.html";
-            break;
+            return;
         }
     }
     for(let i = 0; i<owners.length; i++){
         if(email == owners[i].email){
             window.location.href = "owner.html";
-            break;
-        }
-        else{
-            alert("User not found. Please sign up!");
+            return;
         }
     }
-
+        
+        
+    alert("User not found. Please sign up!");
 
 
     
