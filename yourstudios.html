@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="yourstudios.css">
+    <title>Studio Listings</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <img src="home_logo.png" alt="Company Logo" style="height: 60px; width: 60px;">
+            <div class="nav-links">
+                <ul>
+                    <li><a href="owner.html">Studios</a></li>
+                    <li><a href="#"><span class="icon">🔔</span></a></li>
+                    <li><a href="#"><span class="icon">👤</span></a></li>
+                    <li><a href="#"><span class="icon">⚙️</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="studio-list">
+        <!-- Studio Listing 1 -->
+         <button class="add-btn" onclick="ADDstudio()">Add a Studio</button>
+        <div class="studio">
+            <img src="studio1.jpg" alt="Studio Image">
+            <h3>Bow Valley Recording Studio</h3>
+            <p><strong>Address:</strong> 345 - 6 Avenue SE, Calgary, AB T2G 4V1</p>
+            <p><strong>Area:</strong> 120 sq. meters</p>
+            <p><strong>Type:</strong> Recording Studio</p>
+            <p><strong>Capacity:</strong> 10 individuals</p>
+            <p><strong>Parking:</strong> Yes</p>
+            <p><strong>Public Transport:</strong> Yes</p>
+            <p><strong>Availability:</strong> Available</p>
+            <p><strong>Rental Term:</strong> Hourly</p>
+            <p><strong>Price:</strong> $50 per hour</p>
+            <div>
+            <button class="rem-btn">Remove</button>
+            <button class="edit-btn">Edit</button>
+        </div>
+        </div>
+
+        <!-- Studio Listing 2 -->
+        
+    </section>
+
+    <footer class="footer">
+        <h4>About Us</h4>
+        <p>Find and book the best studios at affordable prices.</p>
+    </footer>
+    <div class="form-container">
+        <button id="close-form">X</button>
+        <form id="studio-form">
+            <label for="studio-name">Studio Name:</label>
+            <input type="text" id="studio-name" required>
+    
+            <label for="studio-address">Address:</label>
+            <input type="text" id="studio-address" required>
+    
+            <label for="studio-area">Area (sq. meters):</label>
+            <input type="number" id="studio-area" required>
+    
+            <label for="studio-type">Type:</label>
+            <input type="text" id="studio-type" required>
+    
+            <label for="studio-capacity">Capacity:</label>
+            <input type="number" id="studio-capacity" required>
+    
+            <label>Parking:</label>
+            <input type="checkbox" id="studio-parking">
+    
+            <label>Public Transport:</label>
+            <input type="checkbox" id="studio-transport">
+    
+            <label for="studio-availability">Availability:</label>
+            <select id="studio-availability">
+                <option>Available</option>
+                <option>Not Available</option>
+            </select>
+    
+            <label for="studio-rental">Rental Term:</label>
+            <select id="studio-rental">
+                <option>Hourly</option>
+                <option>Daily</option>
+            </select>
+    
+            <label for="studio-price">Price per hour ($):</label>
+            <input type="number" id="studio-price" required>
+    
+            <button type="submit">Add Studio</button>
+        </form>
+    </div>
+    
+    <script src="owner.js"></script>
+</body>
+</html>

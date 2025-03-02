@@ -48,7 +48,7 @@ let owners = JSON.parse(localStorage.getItem("owners")) || [
 
     const alreadyExists = renters.some(obj => {
         if (obj.email === person.email) {
-            alert("Already have an account! Login");
+            $(".Error").show();
             return true; 
         }
     });
@@ -121,7 +121,7 @@ function SubmitFuncLogin(_event) {
     }
         
         
-    alert("User not found. Please sign up!");
+    $(".Error").show();
 
 
     

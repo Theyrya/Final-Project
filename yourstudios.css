@@ -1,0 +1,277 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #b8651d, #dc2e1b); /* Gradient background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header */
+.header {
+    min-height: 10vh;
+    width: 100%;
+    background: url('background.jpg') no-repeat center center/cover, 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    position: relative;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    padding: 2% 6%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav img {
+    width: 150px;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links ul li {
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+/* Studio Listings - 3 boxes per row */
+.studio-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to a new row */
+    justify-content: center; /* Centers items */
+    gap: 20px; /* Space between items */
+    width: 80%;
+    margin: auto;
+    padding: 50px 0;
+}
+
+.studio {
+    width: calc(33.33% - 40px); /* 3 items per row */
+    max-width: 300px; /* Ensures consistency */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.studio img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.studio h3 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.studio p {
+    font-size: 16px;
+    color: #555;
+}
+
+.studio:hover {
+    transform: scale(1.05);
+}
+
+/* Favorite Button */
+.rem-btn, .edit-btn, .add-btn {
+    display: inline-block;
+    background: #110d0d; /* Red color for visibility */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+    width: 80%;
+}
+
+.rem-btn:hover {
+    background: #e84118; /* Slightly darker red on hover */
+}
+.edit-btn:hover {
+    background: #e84118; /* Slightly darker red on hover */
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    background: #222;
+    color: white;
+    margin-top: 50px;
+}
+
+.footer h4 {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+/* Form Overlay */
+/* Hide the form initially */
+/* Form Overlay */
+/* Form Container Styling */
+.form-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: center;
+    z-index: 1000;
+}
+
+.form-container label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.form-container button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Add Button */
+.form-container button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #1f8b34;
+}
+
+/* Cancel Button */
+#close-form {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+#close-form:hover {
+    background-color: #cc0000;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .form-container {
+        width: 90%;
+    }
+}
+
+
+/* Ensure scrolling doesn't affect the whole page */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .form-container {
+        width: 90%;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .form-container {
+        width: 90%;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .form-container {
+        width: 90%;
+    }
+}
+
+/* Responsive Design */
+
+/* Adjust to two columns on smaller screens */
+@media (max-width: 900px) {
+    .studio {
+        width: calc(50% - 40px); /* 2 items per row */
+    }
+}
+
+/* Adjust to one column on mobile screens */
+@media (max-width: 600px) {
+    .studio {
+        width: 100%; /* Full width */
+    }
+}
