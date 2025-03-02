@@ -208,6 +208,61 @@ nav img {
 .fav-btn:hover {
     background: #e84118; /* Slightly darker red on hover */
 }
+/* Modal Styles */
+/* Modal (Hidden by Default) */
+.modal {
+    display: none; /* Hidden until triggered */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Settings Sections */
+.settings-section {
+    margin: 15px 0;
+}
+
+.settings-btn {
+    background: #4ca1af;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.settings-btn:hover {
+    background: #357d89;
+}
+
 
 /* Responsive Design */
 @media (max-width: 700px) {
