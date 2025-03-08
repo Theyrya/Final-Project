@@ -1,13 +1,18 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #e3b9b9;
     margin: 0;
-    padding: 0;
+    padding-right: 50vh;
+    padding-left: 30vh;
 }
 
 h1{
-    margin-top: 0;
+    margin-top: 0px;
     margin-bottom: 85vw;
+}
+
+&#x2217 {
+    color: red;
 }
 
 .container {
@@ -23,7 +28,7 @@ h1{
     max-width: 400px;
     padding: 20px;
     border-radius: 15px;
-    background-color: #ffffff;
+    background-color: #e79a9a;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -39,9 +44,8 @@ input[type="text"], input[type="email"], textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #6b4b4b;
     border-radius: 5px;
-    font-size: 14px;
     box-sizing: border-box;
 }
 
@@ -49,43 +53,13 @@ textarea {
     resize: vertical;
 }
 
-h2, h3 {
-    font-size: 18px;
+h2 {
     color: #333;
     margin: 10px 0;
 }
 
 p {
-    font-size: 14px;
     margin: 5px 0;
-}
-
-.hidden-section {
-    display: none;
-    padding-top: 20px;
-    text-align: left;
-    margin-top: 20px;
-}
-
-.hidden-section label {
-    font-size: 14px;
-    margin-right: 5px;
-}
-
-.toggle-button {
-    background-color: #28a745;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-    margin-bottom: 20px;
-}
-
-.toggle-button:hover {
-    background-color: #218838;
 }
 
 .social-links {
@@ -97,7 +71,7 @@ p {
 .social-links a {
     margin: 0 10px;
     text-decoration: none;
-    color: #007bff;
+    color: #00ffff;
     font-size: 16px;
 }
 
@@ -106,12 +80,11 @@ p {
 }
 
 .account-management {
-    background-color: #007bff;
-    color: white;
+    background-color: #ff6f00;
+    color: #e7c79a;
     padding: 15px;
     border-radius: 8px;
     margin-top: 20px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
