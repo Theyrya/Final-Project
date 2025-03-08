@@ -1,0 +1,127 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+ 
+header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 1rem;
+    text-align: center;
+}
+ 
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+ 
+header nav ul li {
+    margin: 0 1rem;
+}
+ 
+header nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+ 
+header nav ul li a:hover {
+    background-color: #34495e;
+}
+ 
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.settings {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+ 
+.settings h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2980b9;
+}
+ 
+.settings h2 {
+    margin-top: 2rem;
+    color: #2c3e50;
+}
+ 
+.settings form {
+    margin-bottom: 2rem;
+}
+ 
+.settings label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+ 
+.settings input,
+.settings select,
+.settings textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+ 
+.settings input:focus,
+.settings select:focus,
+.settings textarea:focus {
+    border-color: #2980b9;
+}
+ 
+.settings input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+ 
+.settings button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2980b9;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+ 
+.settings button:hover {
+    background-color: #3498db;
+}
+ 
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+ 
