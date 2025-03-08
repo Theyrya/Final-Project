@@ -1,48 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Profile Page</title>    
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="signup.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
-
-    </style>
-
 </head>
-
 <body>
-    <div class="login-container">
-        <h3 class="Error" style="display: none; border: 2px solid red; color: red;">Already have an account! Login</h3>
-        <h2>Sign Up</h2>
-        <p>Enter your email to continue</p>
-        <input id="input" type="email" name="email" placeholder="Enter your email" required>
-        <input type="text" name="firstname" placeholder="Enter your firstname" required>
-        <input type="text" name="lastname" placeholder="Enter your lastname" required>
 
-        <input type="number" name="mobilenumber" placeholder="Enter your mobile number" required>
-        <!-- DOB:<input type="date" name="DOB" placeholder="Enter your date of birth" required> -->
-        <!-- <input type="text" name="Address" placeholder="Enter your adress" required> -->
-        <label for="designation">Who are you:</label>
-        <select id="designation" name="designation">
-            <option value="renter">Renter</option>
-            <option value="owner">Owner</option>
-        </select>
-        <button type="submit" onclick="SubmitFuncSignup(event)" style="margin-top: 5px;">Sign Up</button>
-        <p>Already have an Account? <a href="login.html">Login</a></p>
-    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Profile Page</h1>
+        </div>
 
+        <div class="profile-card">
+            <img src="https://mypic.com" alt="Profile Picture">
+            <h2>First Name&#x2217;: <input type="text"></h2>
+            <p>
+                <label for="lastName"><strong>Last Name&#x2217;: </strong></label>
+                <input type="text" name="lastName" required>
+            </p>
+            <p>
+                <label for="PersonalStatement"><strong>Personal Statement&#x2217;: </strong></label>
+                <textarea id="PersonalStatement" placeholder="Write something about yourself!" required></textarea>
+            </p>
+            <p>
+                <label for="email"><strong>Email&#x2217;: </strong></label>
+                <input type="email" placeholder="Type your email here">
+            </p>
+            <p>
+                <label for="Location"><strong>Location&#x2217;: </strong></label>
+                <input type="text" placeholder="Your Location">
+            </p>
+            <p>
+                <label for="City"><strong>City&#x2217;: </strong></label>
+                <input type="text" placeholder="Your City">
+            </p>
+            <p>
+                <label for="Province"><strong>Province&#x2217;: </strong></label>
+                <input type="text" placeholder="Your Province">
+            </p>
+            <p>
+                <label for="Contact"><strong>Contact&#x2217;: </strong></label>
+                <input type="text" placeholder="555-555-5555">
+            </p>
 
-    <script src="script.js">
+            <h3>Voluntary Self-Indentification</h3>
         
+            <label for="gender">Gender: </label>
+            <label for="gender-male">Male</label>
+            <input type="radio" id="gender-male" name="gender" value="male">
+            <label for="gender-female">Female</label>
+            <input type="radio" id="gender-female" name="gender" value="female">
 
-    </script>
+            <br>
 
+            <label for="Disability">Disability: </label>
+            <label for="Disability-yes">Yes</label>
+            <input type="radio" id="Disability-yes" name="disability" value="yes">
+            <label for="Disability-no">No</label>
+            <input type="radio" id="Disability-no" name="disability" value="no">
+
+            <br>
+
+            <label for="Indigenous">Indigenous: </label>
+            <label for="Indigenous-yes">Yes</label>
+            <input type="radio" id="Indigenous-yes" name="indigenous" value="yes">
+            <label for="Indigenous-no">No</label>
+            <input type="radio" id="Indigenous-no" name="indigenous" value="no">
+
+            <br>
+
+            <label for="VisibleMinority">Visible Minority: </label>
+            <label for="VisibleMinority-Yes">Yes</label>
+            <input type="radio" id="VisibleMinority-yes" name="visibleMinority" value="yes">
+            <label for="VisibleMinority-no">No</label>
+            <input type="radio" id="VisibleMinority-no" name="visibleMinority" value="no">
+            <br>
+            <br>
+
+            <div class="social-links">
+                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank">Facebook</a>
+                <a href="#" target="_blank">Twitter</a>
+                <a href="#" target="_blank">LinkedIn</a>
+            </div>
+
+            <h3>Account Management</h3>
+            <p>deactivate or delete your account</p>
+            <p>logout</p>
+            <p>&#x2753;need help&#x3F;</p>
+        </div>
+    </div>
 </body>
-
 </html>
+
