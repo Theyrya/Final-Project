@@ -15,7 +15,11 @@
 
         <div class="profile-card">
             <img src="https://mypic.com" alt="Profile Picture">
-            <h2>First Name&#x2217;: <input type="text"></h2>
+            
+            <p>
+                <label for="firstName"><strong>First Name&#x2217;: </strong></label>
+                <input type="text" name="firstName" required>
+            </p>
             <p>
                 <label for="lastName"><strong>Last Name&#x2217;: </strong></label>
                 <input type="text" name="lastName" required>
@@ -45,8 +49,8 @@
                 <input type="text" placeholder="555-555-5555">
             </p>
 
-            <h3>Voluntary Self-Indentification</h3>
-        
+            <h2>Voluntary Self-Indentification</h2>
+            
             <label for="gender">Gender: </label>
             <label for="gender-male">Male</label>
             <input type="radio" id="gender-male" name="gender" value="male">
@@ -86,7 +90,7 @@
                 <a href="#" target="_blank">LinkedIn</a>
             </div>
 
-            <h3>Account Management</h3>
+            <h3 class="account-management">Account Management</h3>
             <p>deactivate or delete your account</p>
             <p>logout</p>
             <p>&#x2753;need help&#x3F;</p>
