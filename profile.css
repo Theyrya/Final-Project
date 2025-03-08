@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin-top: 0;
+    margin-bottom: 85vw;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+h2, h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.hidden-section {
+    display: none;
+    padding-top: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.hidden-section label {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.toggle-button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.toggle-button:hover {
+    background-color: #218838;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 16px;
+}
+
+.social-links a:hover {
+    color: #0056b3;
+}
+
+.account-management {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account-management:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .profile-card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .social-links a {
+        font-size: 14px;
+    }
+}
