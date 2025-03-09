@@ -76,7 +76,7 @@ nav img {
 }
 
 /* Studio Listings - 3 boxes per row */
-.studio-list {
+.favorites-container {
     display: flex;
     flex-wrap: wrap; /* Allows wrapping to a new row */
     justify-content: center; /* Centers items */
@@ -86,7 +86,7 @@ nav img {
     padding: 50px 0;
 }
 
-.studio {
+.favorite-studio {
     width: calc(33.33% - 40px); /* 3 items per row */
     max-width: 300px; /* Ensures consistency */
     background: rgba(255, 255, 255, 0.9);
@@ -97,42 +97,84 @@ nav img {
     transition: 0.3s;
 }
 
-.studio img {
+.favorite-studio img {
     width: 100%;
     border-radius: 10px;
 }
 
-.studio h3 {
+.favorite-studio h3 {
     font-size: 22px;
     margin: 10px 0;
 }
 
-.studio p {
+.favorite-studio p {
     font-size: 16px;
     color: #555;
 }
 
-.studio:hover {
+.favorite-studio:hover {
     transform: scale(1.05);
 }
 
-/* Favorite Button */
-.fav-btn {
-    display: inline-block;
-    background: #ff4757; /* Red color for visibility */
+/* Remove Button */
+.remove-btn {
+    background-color: red;
     color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
     border: none;
-    transition: 0.3s ease-in-out;
-    width: 80%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
-.fav-btn:hover {
-    background: #e84118; /* Slightly darker red on hover */
+.remove-btn:hover {
+    background-color: darkred;
+}
+
+/* Style for the Clear All Favorites button */
+button {
+    background-color: #f44336; /* Red background */
+    color: white;              /* White text */
+    padding: 10px 20px;        /* Spacing inside the button */
+    border: none;              /* Remove default border */
+    border-radius: 5px;        /* Rounded corners */
+    font-size: 16px;           /* Text size */
+    cursor: pointer;          /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    display: inline-block;     /* Align button inline */
+    margin: 10px 0;            /* Space around button */
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Focus effect */
+button:focus {
+    outline: none; /* Remove outline when focused */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Light shadow for focus */
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+    display: none;
+}
+
+.notification.error {
+    background-color: #dc3545;
 }
 
 /* Footer */
