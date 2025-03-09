@@ -13,35 +13,20 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="Home.html">Studios</a></li>
+                    <li><a href="Myfaves.html">My Faves ❤️</a></li>
                     <li><a href="#"><span class="icon">🔔</span></a></li>
-                    <li><a href="#"><span class="icon">👤</span></a></li>
+                    <li><a href="profile.html"><span class="icon">👤</span></a></li>
                     <li><a href="#" onclick="Settings(event)"><span class="icon">⚙️</span></a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <section class="studio-list">
-        <!-- Studio Listing 1 -->
-         
-        <div class="studio">
-            <img src="studio1.jpg" alt="Studio Image">
-            <h3>Bow Valley Recording Studio</h3>
-            <p><strong>Address:</strong> 345 - 6 Avenue SE, Calgary, AB T2G 4V1</p>
-            <p><strong>Area:</strong> 120 sq. meters</p>
-            <p><strong>Type:</strong> Recording Studio</p>
-            <p><strong>Capacity:</strong> 10 individuals</p>
-            <p><strong>Parking:</strong> Yes</p>
-            <p><strong>Public Transport:</strong> Yes</p>
-            <p><strong>Availability:</strong> Available</p>
-            <p><strong>Rental Term:</strong> Hourly</p>
-            <p><strong>Price:</strong> $50 per hour</p>
-            <button class="fav-btn">❤️ Add to My Faves</button>
-        </div>
+    <div id="notification" class="notification"></div>
 
-        <!-- Studio Listing 2 -->
-        
-    </section>
+    <div id="favoritesContainer" class="favorites-container"></div>
+
+    <button onclick="clearFavorites()">🗑️ Clear All Favorites</button>
 
     <footer class="footer">
         <h4>About Us</h4>
@@ -98,5 +83,7 @@
         });
     </script>
     
+    <script src="Myfaves.js"></script>
+
 </body>
 </html>
