@@ -126,21 +126,25 @@ nav img {
     color: black;
 }
 
-/* Studio Listings */
+/* Studio Listings - 3 boxes per row */
 .studio-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to a new row */
+    justify-content: center; /* Centers items */
+    gap: 20px; /* Space between items */
     width: 80%;
     margin: auto;
-    text-align: center;
     padding: 50px 0;
 }
 
 .studio {
+    width: calc(33.33% - 40px); /* 3 items per row */
+    max-width: 300px; /* Ensures consistency */
     background: rgba(255, 255, 255, 0.9);
     padding: 15px;
-    margin: 20px auto;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
     transition: 0.3s;
 }
 
@@ -161,6 +165,27 @@ nav img {
 
 .studio:hover {
     transform: scale(1.05);
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+    display: none;
+}
+
+.notification.error {
+    background-color: #dc3545;
 }
 
 /* Footer */
