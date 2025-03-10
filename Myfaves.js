@@ -1,3 +1,186 @@
+// Array of studio objects
+const studios = [
+    {
+        name: "Bow Valley Recording Studio",
+        address: "345 - 6 Avenue SE, Calgary, AB T2G 4V1",
+        price: "$50 per hour",
+        image: "studio1.jpg",
+        area: "120 sq. meters",
+        type: "Recording Studio",
+        capacity: "10 individuals",
+        parking: "Yes",
+        transport: "Yes",
+        availability: "Available",
+        rental: "Hourly"
+    },
+    {
+        name: "Urban Art Loft",
+        address: "123 Main St, Vancouver, BC",
+        price: "$120 per day",
+        image: "studio2.jpg",
+        area: "85 sq. meters",
+        type: "Art Studio",
+        capacity: "5 individuals",
+        parking: "No",
+        transport: "Yes",
+        availability: "Not Available",
+        rental: "Daily"
+    },
+    {
+        name: "Creative Dance Hub",
+        address: "789 Dance Ave, Toronto, ON",
+        price: "$700 per week",
+        image: "studio3.jpg",
+        area: "150 sq. meters",
+        type: "Dance Studio",
+        capacity: "20 individuals",
+        parking: "Yes",
+        transport: "Yes",
+        availability: "Available",
+        rental: "Weekly"
+    },
+    {
+        name: "Downtown Music Haven",
+        address: "555 Sound St, Montreal, QC",
+        price: "$2500 per month",
+        image: "studio4.jpg",
+        area: "100 sq. meters",
+        type: "Rehearsal Space",
+        capacity: "15 individuals",
+        parking: "No",
+        transport: "Yes",
+        availability: "Available",
+        rental: "Monthly"
+    },
+    {
+        name: "Film Production Hub",
+        address: "910 Movie Blvd, Edmonton, AB",
+        price: "$500 per day",
+        image: "studio5.jpg",
+        area: "200 sq. meters",
+        type: "Film Studio",
+        capacity: "30 individuals",
+        parking: "Yes",
+        transport: "No",
+        availability: "Not Available",
+        rental: "Daily"
+    },
+    {
+        name: "Acting Rehearsal Loft",
+        address: "777 Drama Ln, Ottawa, ON",
+        price: "$80 per hour",
+        image: "studio6.jpg",
+        area: "110 sq. meters",
+        type: "Rehearsal Space",
+        capacity: "12 individuals",
+        parking: "No",
+        transport: "Yes",
+        availability: "Available",
+        rental: "Hourly"
+    },
+    {
+        name: "Sunset Photography Studio",
+        address: "456 Sunset Blvd, Los Angeles, CA",
+        price: "$150 per hour",
+        image: "studio7.jpg",
+        area: "90 sq. meters",
+        type: "Photography Studio",
+        capacity: "8 individuals",
+        parking: "Yes",
+        transport: "Yes",
+        availability: "Available",
+        rental: "Hourly"
+    },
+    {
+        name: "Golden Records Studio",
+        address: "789 Music Ave, Nashville, TN",
+        price: "$200 per hour",
+        image: "studio8.jpg",
+        area: "130 sq. meters",
+        type: "Recording Studio",
+        capacity: "12 individuals",
+        parking: "Yes",
+        transport: "No",
+        availability: "Available",
+        rental: "Hourly"
+    },
+    {
+        name: "Modern Art Space",
+        address: "321 Art Lane, New York, NY",
+        price: "$300 per day",
+        image: "studio9.jpg",
+        area: "110 sq. meters",
+        type: "Art Studio",
+        capacity: "6 individuals",
+        parking: "No",
+        transport: "Yes",
+        availability: "Available",
+        rental: "Daily"
+    }
+];
+
+// Function to render studios
+function renderStudios(filteredStudios = studios) {
+    const studioList = document.getElementById("studioList");
+    if (studioList) {
+        studioList.innerHTML = filteredStudios.map(studio => `
+            <div class="studio" data-name="${studio.name}">
+                <img src="${studio.image}" alt="Studio Image">
+                <h3>${studio.name}</h3>
+                <p><strong>Address:</strong> ${studio.address}</p>
+                <p><strong>Area:</strong> ${studio.area}</p>
+                <p><strong>Type:</strong> ${studio.type}</p>
+                <p><strong>Capacity:</strong> ${studio.capacity}</p>
+                <p><strong>Parking:</strong> ${studio.parking}</p>
+                <p><strong>Public Transport:</strong> ${studio.transport}</p>
+                <p><strong>Availability:</strong> ${studio.availability}</p>
+                <p><strong>Rental Term:</strong> ${studio.rental}</p>
+                <p><strong>Price:</strong> ${studio.price}</p>
+                <button class="fav-btn" onclick="addToFavesFromElement(this)">❤️ Add to My Faves</button>
+            </div>
+        `).join("");
+    }
+}
+
+// Function to filter studios based on search input
+function filterStudios(searchTerm) {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+    const filteredStudios = studios.filter(studio => {
+        // Convert all properties to lowercase for case-insensitive search
+        const name = studio.name.toLowerCase();
+        const type = studio.type.toLowerCase();
+        const address = studio.address.toLowerCase();
+        const availability = studio.availability.toLowerCase(); // Availability is already a string
+
+        // Check if the search term matches the exact availability value
+        const isAvailabilityMatch = availability === lowerCaseSearchTerm;
+
+        return (
+            name.includes(lowerCaseSearchTerm) ||
+            type.includes(lowerCaseSearchTerm) ||
+            address.includes(lowerCaseSearchTerm) ||
+            isAvailabilityMatch // Exact match for availability
+        );
+    });
+
+    renderStudios(filteredStudios);
+}
+
+// Add event listener to the search box
+const searchBox = document.getElementById("searchBox");
+if (searchBox) {
+    searchBox.addEventListener("input", (event) => {
+        const searchTerm = event.target.value.trim();
+        filterStudios(searchTerm);
+    });
+}
+
+// Render studios on page load (only on Home.html)
+if (window.location.pathname.includes("Home.html")) {
+    renderStudios();
+}
+
 // Function to show a blinking notification
 function showNotification(message) {
     const notification = document.getElementById("notification");
@@ -24,26 +207,19 @@ function showNotification(message) {
 // Function to add a studio to favorites
 function addToFavesFromElement(button) {
     const studioDiv = button.closest('.studio');
+    const studioName = studioDiv.getAttribute("data-name");
 
-    const studio = {
-        name: studioDiv.querySelector('h3').innerText,
-        address: studioDiv.querySelector('p:nth-of-type(1)').innerText.replace("Address: ", ""),
-        area: studioDiv.querySelector('p:nth-of-type(2)').innerText.replace("Area: ", ""),
-        type: studioDiv.querySelector('p:nth-of-type(3)').innerText.replace("Type: ", ""),
-        capacity: studioDiv.querySelector('p:nth-of-type(4)').innerText.replace("Capacity: ", ""),
-        parking: studioDiv.querySelector('p:nth-of-type(5)').innerText.replace("Parking: ", ""),
-        transport: studioDiv.querySelector('p:nth-of-type(6)').innerText.replace("Public Transport: ", ""),
-        availability: studioDiv.querySelector('p:nth-of-type(7)').innerText.replace("Availability: ", ""),
-        rental: studioDiv.querySelector('p:nth-of-type(8)').innerText.replace("Rental Term: ", ""),
-        price: studioDiv.querySelector('p:nth-of-type(9)').innerText.replace("Price: ", ""),
-        image: studioDiv.querySelector('img').src,
-    };
+    // Find the studio object from the studios array
+    const studio = studios.find(s => s.name === studioName);
+
+    if (!studio) return;
 
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
+    // Check if the studio is already in favorites
     const isAlreadyAdded = favorites.some(fav => fav.name === studio.name);
     if (!isAlreadyAdded) {
-        favorites.push(studio);
+        favorites.push(studio); // Store the full studio object
         localStorage.setItem("favorites", JSON.stringify(favorites));
         showNotification("✅ Added to My Faves!");
     } else {
