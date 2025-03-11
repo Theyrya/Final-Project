@@ -16,7 +16,7 @@
                     <li><a href="Myfaves.html">My Faves ❤️</a></li>
                     <li><a href="#"><span class="icon">🔔</span></a></li>
                     <li><a href="profile.html"><span class="icon">👤</span></a></li>
-                    <li><a href="#" onclick="Settings(event)"><span class="icon">⚙️</span></a></li>
+                    <li><a href="#settings"><span class="icon">⚙️</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -46,6 +46,69 @@
         <h4>About Us</h4>
         <p>Find and book the best studios at affordable prices.</p>
     </footer>
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Settings</h2>
+    
+            <div class="settings-section">
+                <h3>Account Settings</h3>
+                <p>Update your name, email, and password.</p>
+                <button class="settings-btn">Edit Account</button>
+            </div>
+    
+            <div class="settings-section">
+                <h3>Booking History</h3>
+                <p>View your past and upcoming bookings.</p>
+                <button class="settings-btn">View Bookings</button>
+            </div>
+    
+            <div class="settings-section">
+                <h3>Theme Selection</h3>
+                <p>Switch between Light and Dark Mode.</p>
+                <button id="themeToggle" class="settings-btn">Toggle Theme</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("settingsModal");
+    const closeBtn = document.querySelector(".close-btn");
+    const themeToggle = document.getElementById("themeToggle");
+
+    // Ensure modal is hidden on page load
+    modal.style.display = "none";
+
+    // Function to open modal
+    function Settings(event) {
+        event.preventDefault(); // Prevents the page from reloading
+        modal.style.display = "flex";
+    }
+
+    // Function to close modal
+    function CloseSettings() {
+        modal.style.display = "none";
+    }
+
+    // Attach event listeners
+    closeBtn.addEventListener("click", CloseSettings);
+
+    // Close modal when clicking outside
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            CloseSettings();
+        }
+    });
+
+    // Theme Toggle
+    themeToggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+    });
+
+    // Assign the Settings function to the correct settings icon
+    document.querySelector('a[href="#settings"]').addEventListener("click", Settings);
+});
+        </script>
 
     <script src="Myfaves.js"></script>
 
