@@ -290,6 +290,50 @@ nav img {
 .close-btn:hover {
     color: #2c3e50;
 }
+/* Dark Mode */
+.dark-mode {
+    background: #1e1e1e;
+    color: white;
+}
+
+.dark-mode .header,
+.dark-mode .modal-content,
+.dark-mode .studio {
+    background: #333;
+    color: white;
+}
+
+.dark-mode .nav-links ul li a {
+    color: #fff;
+}
+
+.dark-mode .nav-links ul li a:hover {
+    color: #4ca1af;
+}
+
+.dark-mode .hero-btn {
+    border-color: white;
+}
+
+.dark-mode .hero-btn:hover {
+    background: white;
+    color: #333;
+}
+
+.dark-mode .footer {
+    background: #222;
+    color: white;
+}
+
+.dark-mode .settings-btn {
+    background: #4ca1af;
+    color: white;
+}
+
+.dark-mode .settings-btn:hover {
+    background: #2c3e50;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

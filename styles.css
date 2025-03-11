@@ -206,7 +206,7 @@ button:focus {
     font-weight: 600;
 }
 .modal {
-    display: none; /* Hidden until triggered */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -219,56 +219,73 @@ button:focus {
     align-items: center;
 }
 
-/* Modal Content */
 .modal-content {
     background: white;
-    padding: 20px;
-    width: 400px;
-    border-radius: 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
 }
 
-/* Close Button */
 .close-btn {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 20px;
+    top: 20px;
     font-size: 24px;
     cursor: pointer;
+    color: #555;
+    transition: color 0.3s ease;
 }
 
-/* Settings Sections */
-.settings-section {
-    margin: 15px 0;
+.close-btn:hover {
+    color: #2c3e50;
+}
+/* Dark Mode */
+.dark-mode {
+    background: #1e1e1e;
+    color: white;
 }
 
-.settings-btn {
+.dark-mode .header,
+.dark-mode .modal-content,
+.dark-mode .studio {
+    background: #333;
+    color: white;
+}
+
+.dark-mode .nav-links ul li a {
+    color: #fff;
+}
+
+.dark-mode .nav-links ul li a:hover {
+    color: #4ca1af;
+}
+
+.dark-mode .hero-btn {
+    border-color: white;
+}
+
+.dark-mode .hero-btn:hover {
+    background: white;
+    color: #333;
+}
+
+.dark-mode .footer {
+    background: #222;
+    color: white;
+}
+
+.dark-mode .settings-btn {
     background: #4ca1af;
     color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
-.settings-btn:hover {
-    background: #357d89;
+.dark-mode .settings-btn:hover {
+    background: #2c3e50;
 }
-#settingsModal {
-    display: none; /* Make sure it's hidden */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
 
 /* Responsive Design */
 
