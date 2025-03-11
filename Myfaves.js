@@ -262,6 +262,7 @@ function displayFavorites() {
                 <p><strong>Rental Term:</strong> ${studio.rental}</p>
                 <p><strong>Price:</strong> ${studio.price}</p>
                 <button class="remove-btn" onclick="removeFromFaves('${studio.name}')">❌ Remove</button>
+                <button class="book-btn" onclick="BookNow('${studio.name}')">Book</button>
             </div>
         `).join("");
     }
@@ -277,4 +278,89 @@ function clearFavorites() {
     localStorage.removeItem("favorites");
     showNotification("⚠️ All favorites have been cleared!");
     displayFavorites();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("settingsModal");
+    const closeBtn = document.querySelector(".close-btn");
+    const themeToggle = document.getElementById("themeToggle");
+
+    // Ensure modal is hidden on page load
+    modal.style.display = "none";
+
+    // Load theme preference from localStorage
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        themeToggle.textContent = "Enable Light Mode";
+    }
+
+    // Function to open modal
+    function Settings(event) {
+        event.preventDefault(); // Prevents the page from reloading
+        modal.style.display = "flex";
+    }
+
+    // Function to close modal
+    function CloseSettings() {
+        modal.style.display = "none";
+    }
+
+    // Attach event listeners
+    closeBtn.addEventListener("click", CloseSettings);
+
+    // Close modal when clicking outside
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            CloseSettings();
+        }
+    });
+
+    // Theme Toggle Function
+    themeToggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+
+        // Check if dark mode is active
+        if (document.body.classList.contains("dark-mode")) {
+            themeToggle.textContent = "Enable Light Mode";
+            localStorage.setItem("theme", "dark"); // Save preference
+        } else {
+            themeToggle.textContent = "Enable Dark Mode";
+            localStorage.setItem("theme", "light"); // Save preference
+        }
+    });
+
+    // Assign the Settings function to the settings icon
+    document.querySelector('a[href="#settings"]').addEventListener("click", Settings);
+});
+
+// notification 
+
+function addToFavesFromElement(button) {
+    const studioDiv = button.closest('.studio');
+    const studioName = studioDiv.getAttribute("data-name");
+
+    const studio = studios.find(s => s.name === studioName);
+    if (!studio) return;
+
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const isAlreadyAdded = favorites.some(fav => fav.name === studio.name);
+
+    if (!isAlreadyAdded) {
+        favorites.push(studio);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        showNotification(`✅ Added ${studio.name} to My Faves!`, "added");
+    } else {
+        showNotification(`⚠️ ${studio.name} is already in your favorites!`, "warning");
+    }
+}
+
+function removeFromFaves(name) {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const updatedFavorites = favorites.filter(fav => fav.name !== name);
+
+    if (updatedFavorites.length < favorites.length) {
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+        showNotification(`❌ Removed ${name} from My Faves!`, "removed");
+        displayFavorites();
+    }
 }

@@ -132,7 +132,7 @@ nav img {
 }
 
 /* Remove Button */
-.remove-btn {
+.remove-btn, .book-btn {
     background-color: red;
     color: white;
     border: none;
