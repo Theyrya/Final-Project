@@ -250,6 +250,23 @@ nav img {
     margin-bottom: 10px;
     font-weight: 600;
 }
+button {
+    background-color: #f44336; /* Red background */
+    color: white;              /* White text */
+    padding: 10px 20px;        /* Spacing inside the button */
+    border: none;              /* Remove default border */
+    border-radius: 5px;        /* Rounded corners */
+    font-size: 16px;           /* Text size */
+    cursor: pointer;          /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    display: inline-block;     /* Align button inline */
+    margin: 10px 0;            /* Space around button */
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
 
 /* Modal Styles */
 .modal {
@@ -333,7 +350,6 @@ nav img {
 .dark-mode .settings-btn:hover {
     background: #2c3e50;
 }
-
 
 
 /* Responsive Design */
