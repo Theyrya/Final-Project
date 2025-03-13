@@ -332,35 +332,3 @@ document.addEventListener("DOMContentLoaded", function () {
     // Assign the Settings function to the settings icon
     document.querySelector('a[href="#settings"]').addEventListener("click", Settings);
 });
-
-// notification 
-
-function addToFavesFromElement(button) {
-    const studioDiv = button.closest('.studio');
-    const studioName = studioDiv.getAttribute("data-name");
-
-    const studio = studios.find(s => s.name === studioName);
-    if (!studio) return;
-
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    const isAlreadyAdded = favorites.some(fav => fav.name === studio.name);
-
-    if (!isAlreadyAdded) {
-        favorites.push(studio);
-        localStorage.setItem("favorites", JSON.stringify(favorites));
-        showNotification(`✅ Added ${studio.name} to My Faves!`, "added");
-    } else {
-        showNotification(`⚠️ ${studio.name} is already in your favorites!`, "warning");
-    }
-}
-
-function removeFromFaves(name) {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    const updatedFavorites = favorites.filter(fav => fav.name !== name);
-
-    if (updatedFavorites.length < favorites.length) {
-        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-        showNotification(`❌ Removed ${name} from My Faves!`, "removed");
-        displayFavorites();
-    }
-}
