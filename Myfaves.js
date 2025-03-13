@@ -142,6 +142,8 @@ function renderStudios(filteredStudios = studios) {
     }
 }
 
+
+
 // Function to filter studios based on search input
 function filterStudios(searchTerm) {
     const terms = searchTerm.toLowerCase().split(" ").filter(t => t); // Split search term into words
@@ -371,10 +373,9 @@ function cancelBooking(name) {
     if (updatedBookings.length < bookings.length) {
         localStorage.setItem("bookings", JSON.stringify(updatedBookings));
         showNotification("❌ Booking canceled!");
-        
-        setTimeout(() => {
-            displayBookings(); // Ensure UI updates
-        }, 100); // Small delay to reflect changes
+        console.log("canceled booking for: " + name);
+        displayBookings();
+
     }
 }
 function sortStudios(criteria) {
@@ -397,3 +398,103 @@ function sortStudios(criteria) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// owners js
+document.addEventListener("DOMContentLoaded", function () {
+    const formContainer = document.querySelector(".form-container");
+    const addStudioBtn = document.querySelector(".add-btn");
+    const closeFormBtn = document.getElementById("close-form");
+    const studioForm = document.getElementById("studio-form");
+    const studioList = document.querySelector(".studio-list");
+
+    function ADDstudio() {
+        if (!formContainer) return;
+        formContainer.style.display = "block"; 
+        document.body.classList.add("modal-open");
+    }
+
+    function closeForm() {
+        if (!formContainer) return;
+        formContainer.style.display = "none";
+        document.body.classList.remove("modal-open");
+        studioForm.reset();
+    }
+
+    // Event Listeners
+    if (addStudioBtn) addStudioBtn.addEventListener("click", ADDstudio);
+    if (closeFormBtn) closeFormBtn.addEventListener("click", closeForm);
+
+    // Add studio form submission
+    if (studioForm) {
+        studioForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent page reload
+            console.log("Form submitted"); // Debugging: Check if it runs
+
+            // Get values
+            const name = document.getElementById("studio-name").value.trim();
+            const address = document.getElementById("studio-address").value.trim();
+            const area = document.getElementById("studio-area").value.trim();
+            const type = document.getElementById("studio-type").value.trim();
+            const capacity = document.getElementById("studio-capacity").value.trim();
+            const parking = document.getElementById("studio-parking").checked ? "Yes" : "No";
+            const transport = document.getElementById("studio-transport").checked ? "Yes" : "No";
+            const availability = document.getElementById("studio-availability").value.trim();
+            const rental = document.getElementById("studio-rental").value.trim();
+            const price = document.getElementById("studio-price").value.trim();
+            // const image = document.getElementById("studio-image").value.trim() || "default.jpg"; // Default image
+
+            if (!name || !address || !area || !type || !capacity || !availability || !rental || !price) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            // Create a new studio object
+            const newStudio = {
+                name,
+                address,
+                area,
+                type,
+                capacity,
+                parking,
+                transport,
+                availability,
+                rental,
+                price
+            };
+
+            // Retrieve stored studios from local storage
+            let storedStudios = JSON.parse(localStorage.getItem("studios")) || [];
+            storedStudios.push(newStudio);
+            localStorage.setItem("studios", JSON.stringify(storedStudios));
+
+            console.log("New studio added:", newStudio);
+
+            // Clear form and close modal
+            closeForm();
+            showNotification("✅ Studio added successfully!");
+
+            // Reload studios if needed
+            renderStudios(storedStudios);
+            console.log(storedStudios);
+s
+        });
+    }
+});
