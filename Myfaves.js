@@ -232,7 +232,7 @@ function removeFromFaves(name) {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
     const updatedFavorites = favorites.filter(fav => fav.name !== name);
-    
+
     if (updatedFavorites.length < favorites.length) {
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
         showNotification("❌ Removed from My Faves!");
@@ -332,3 +332,62 @@ document.addEventListener("DOMContentLoaded", function () {
     // Assign the Settings function to the settings icon
     document.querySelector('a[href="#settings"]').addEventListener("click", Settings);
 });
+
+// Booking 
+// Function to book a studio
+function BookNow(studioName) {
+    // Find the studio object from the studios array
+    const studio = studios.find(s => s.name === studioName);
+
+    if (!studio) return;
+
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+    // Check if the studio is already booked
+    const isAlreadyBooked = bookings.some(booked => booked.name === studio.name);
+    if (!isAlreadyBooked) {
+        bookings.push(studio); // Store the full studio object
+        localStorage.setItem("bookings", JSON.stringify(bookings));
+        showNotification("✅ Studio booked successfully!");
+    } else {
+        showNotification("⚠️ This studio is already booked!");
+    }
+}
+
+function displayBookings() {
+    const bookingsContainer = document.getElementById("bookingsContainer");
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+    if (bookings.length === 0) {
+        bookingsContainer.innerHTML = "<p>No bookings made yet.</p>";
+    } else {
+        bookingsContainer.innerHTML = bookings.map(studio => `
+    <div class="booked-studio">
+        <img src="${studio.image}" alt="Studio Image">
+        <h3>${studio.name}</h3>
+        <p><strong>Address:</strong> ${studio.address}</p>
+        <p><strong>Type:</strong> ${studio.type}</p>
+        <p><strong>Rental Term:</strong> ${studio.rental}</p>
+        <p><strong>Price:</strong> ${studio.price}</p>
+        <button class="remove-btn" onclick="cancelBooking('${studio.name}')">❌ Cancel Booking</button>
+    </div>
+`).join("");
+    }
+}
+
+// Display bookings when MyBookings.html page loads
+if (window.location.pathname.includes("Mybook.html")) {
+    displayBookings();
+}
+
+function cancelBooking(name) {
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    const updatedBookings = bookings.filter(studio => studio.name !== name);
+
+    if (updatedBookings.length < bookings.length) {
+        localStorage.setItem("bookings", JSON.stringify(updatedBookings));
+        showNotification("❌ Booking canceled!");
+        displayBookings();
+    }
+}
+
