@@ -144,28 +144,14 @@ function renderStudios(filteredStudios = studios) {
 
 // Function to filter studios based on search input
 function filterStudios(searchTerm) {
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
-
+    const terms = searchTerm.toLowerCase().split(" ").filter(t => t); // Split search term into words
     const filteredStudios = studios.filter(studio => {
-        // Convert all properties to lowercase for case-insensitive search
-        const name = studio.name.toLowerCase();
-        const type = studio.type.toLowerCase();
-        const address = studio.address.toLowerCase();
-        const availability = studio.availability.toLowerCase(); // Availability is already a string
-
-        // Check if the search term matches the exact availability value
-        const isAvailabilityMatch = availability === lowerCaseSearchTerm;
-
-        return (
-            name.includes(lowerCaseSearchTerm) ||
-            type.includes(lowerCaseSearchTerm) ||
-            address.includes(lowerCaseSearchTerm) ||
-            isAvailabilityMatch // Exact match for availability
-        );
+        const dataString = `${studio.name} ${studio.type} ${studio.address} ${studio.availability}`.toLowerCase();
+        return terms.every(term => dataString.includes(term)); // Check if all terms are present
     });
-
     renderStudios(filteredStudios);
 }
+
 
 // Add event listener to the search box
 const searchBox = document.getElementById("searchBox");
@@ -336,23 +322,21 @@ document.addEventListener("DOMContentLoaded", function () {
 // Booking 
 // Function to book a studio
 function BookNow(studioName) {
-    // Find the studio object from the studios array
     const studio = studios.find(s => s.name === studioName);
-
     if (!studio) return;
 
     let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
-    // Check if the studio is already booked
-    const isAlreadyBooked = bookings.some(booked => booked.name === studio.name);
-    if (!isAlreadyBooked) {
-        bookings.push(studio); // Store the full studio object
-        localStorage.setItem("bookings", JSON.stringify(bookings));
-        showNotification("✅ Studio booked successfully!");
-    } else {
+    if (bookings.some(b => b.name === studio.name)) {
         showNotification("⚠️ This studio is already booked!");
+        return;
     }
+
+    bookings.push(studio);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    showNotification("✅ Studio booked successfully!");
 }
+
 
 function displayBookings() {
     const bookingsContainer = document.getElementById("bookingsContainer");
@@ -376,7 +360,7 @@ function displayBookings() {
 }
 
 // Display bookings when MyBookings.html page loads
-if (window.location.pathname.includes("Mybook.html")) {
+if (window.location.pathname.toLowerCase().includes("mybook.html")) {
     displayBookings();
 }
 
@@ -387,7 +371,29 @@ function cancelBooking(name) {
     if (updatedBookings.length < bookings.length) {
         localStorage.setItem("bookings", JSON.stringify(updatedBookings));
         showNotification("❌ Booking canceled!");
-        displayBookings();
+        
+        setTimeout(() => {
+            displayBookings(); // Ensure UI updates
+        }, 100); // Small delay to reflect changes
     }
 }
+function sortStudios(criteria) {
+    let sortedStudios = [...studios];
+
+    switch (criteria) {
+        case "price":
+            sortedStudios.sort((a, b) => parseInt(a.price.replace(/\D/g, '')) - parseInt(b.price.replace(/\D/g, '')));
+            break;
+        case "capacity":
+            sortedStudios.sort((a, b) => parseInt(a.capacity) - parseInt(b.capacity));
+            break;
+        default:
+            break;
+    }
+
+    renderStudios(sortedStudios);
+}
+
+
+
 

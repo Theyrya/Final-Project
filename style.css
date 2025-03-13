@@ -137,7 +137,7 @@ nav img {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.hero-btn {
+#sortOptions {
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -151,7 +151,7 @@ nav img {
     margin-top: 20px;
 }
 
-.hero-btn:hover {
+#sortOptions:hover {
     background: white;
     color: #2c3e50;
     transform: translateY(-3px);
@@ -328,11 +328,11 @@ button:hover {
     color: #4ca1af;
 }
 
-.dark-mode .hero-btn {
+.dark-mode #sortOptions {
     border-color: white;
 }
 
-.dark-mode .hero-btn:hover {
+.dark-mode #sortOptions:hover {
     background: white;
     color: #333;
 }

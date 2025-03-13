@@ -35,8 +35,13 @@
         <h1>Find Your Perfect Studio</h1>
         <p>Search and book the best studio spaces available in your city.</p>
         <input type="text" id="searchBox" placeholder="Search studio-list...">
-        <button class="hero-btn">Filters</button>
+        <!-- <button class="hero-btn">Filters</button> -->
     </div>
+    <select id="sortOptions" onchange="sortStudios(this.value)">
+        <option value="">Sort By</option>
+        <option value="price">Price (Low to High)</option>
+        <option value="capacity">Capacity (Low to High)</option>
+    </select>
 
     <div id="notification" class="notification"></div>
 
