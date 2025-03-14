@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
     <title>My Faves</title>
 </head>
 <body>
     <header class="header">
         <nav>
-            <img src="website_logo.png" alt="Company Logo" style="height: 60px; width: 60px;">
+            <img src="../../Images/website_logo.png" alt="Company Logo" style="height: 60px; width: 60px;">
             <div class="nav-links">
                 <ul>
                     <li><a href="Home.html">Studios</a></li>
@@ -40,13 +40,13 @@
             <div class="settings-section">
                 <h3>Account Settings</h3>
                 <p>Update your name, email, and password.</p>
-                <button class="settings-btn">Edit Account</button>
+                <button onclick="location.href='profile.html';" class="settings-btn">Edit Account</button>
             </div>
     
             <div class="settings-section">
                 <h3>Booking History</h3>
                 <p>View your past and upcoming bookings.</p>
-                <button class="settings-btn">View Bookings</button>
+                <button onclick="location.href='Mybook.html';" class="settings-btn">View Bookings</button>
             </div>
     
             <div class="settings-section">
@@ -56,6 +56,6 @@
             </div>
         </div>
     </div>
-    <script src="Myfaves.js"></script>
+    <script src="../JS/Myfaves.js"></script>
 </body>
 </html>
