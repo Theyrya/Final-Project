@@ -7,30 +7,44 @@
 }
 
 body {
-    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Gradient background */
+    background: #DDF2FD; /* Light Blue for background */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #164863; /* Dark Blue for text */
+    line-height: 1.6;
 }
 
 /* Header */
 .header {
+    min-height: 15vh;
     width: 100%;
-    position: relative;
+    background: url('background.jpg') no-repeat center center/cover,
+                linear-gradient(rgba(22, 72, 99, 0.7), rgba(22, 72, 99, 0.7)); /* Semi-transparent Dark Blue overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
+/* Navigation */
 nav {
     display: flex;
-    padding: 2% 6%;
+    padding: 1% 6%;
     align-items: center;
     justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #164863; /* Dark Blue for navigation bar */
 }
 
 nav img {
-    width: 200px;
+    width: 150px;
 }
 
 .nav-links {
@@ -49,139 +63,140 @@ nav img {
 }
 
 .nav-links ul li a {
-    color: #fff;
+    color: #9BBEC8; /* Light Gray-Blue for links */
     text-decoration: none;
     font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+    color: #DDF2FD; /* Light Blue on hover */
 }
 
 .nav-links ul li::after {
     content: '';
     width: 0%;
     height: 2px;
-    background: white;
+    background: #DDF2FD; /* Light Blue for underline */
     display: block;
     margin: auto;
-    transition: 0.5s;
+    transition: width 0.3s ease;
 }
 
 .nav-links ul li:hover::after {
     width: 100%;
 }
 
-.icon {
-    font-size: 20px;
-}
-
-/* Profile Page Container */
+/* Profile Container */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    width: 100%;
+    max-width: 500px; /* Compact container */
+    background: #FFFFFF; /* White for container background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px 0; /* 20px distance from header and footer */
 }
 
-/* Profile Card */
 .profile-card {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency to match the main page's white elements */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: black;
+    padding: 15px;
 }
 
 .profile-card img {
-    width: 150px;
-    height: 150px;
+    display: block;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin: 0 auto 15px;
+    border: 3px solid #427D9D; /* Medium Blue for border */
+    object-fit: cover;
 }
 
-input[type="text"], input[type="email"], textarea {
+.profile-card p {
+    margin-bottom: 10px;
+}
+
+.profile-card label {
+    display: block;
+    font-weight: 500;
+    color: #164863; /* Dark Blue for labels */
+    margin-bottom: 5px;
+}
+
+.profile-card input[type="text"],
+.profile-card input[type="email"],
+.profile-card textarea {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
+    padding: 8px;
+    border: 1px solid #9BBEC8; /* Light Gray-Blue for border */
     border-radius: 5px;
-    background: rgba(0, 0, 0, 0.8);
-    font-size: 16px;
+    font-size: 14px;
+    color: #164863; /* Dark Blue for text */
+    background: #F8F9FA; /* Off-White for input background */
+    transition: border-color 0.3s ease;
 }
 
-textarea {
+.profile-card input[type="text"]:focus,
+.profile-card input[type="email"]:focus,
+.profile-card textarea:focus {
+    border-color: #427D9D; /* Medium Blue for focus */
+    outline: none;
+}
+
+.profile-card textarea {
     resize: vertical;
+    min-height: 80px;
 }
 
-h1, h2 {
-    font-weight: 600;
-    font-size: 28px;
-    margin-bottom: 20px;
+.profile-card h2 {
+    font-size: 1.25rem;
+    color: #164863; /* Dark Blue for headings */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #9BBEC8; /* Light Gray-Blue for border */
+    padding-bottom: 5px;
 }
 
-/* Voluntary Self-Identification Section */
-h2 {
-    font-size: 22px;
-    margin-top: 20px;
+.profile-card .radio-group {
+    margin-bottom: 10px;
 }
 
-label {
-    font-size: 16px;
+.profile-card .radio-group label {
+    display: inline-block;
     margin-right: 10px;
+    font-weight: 500;
+    color: #164863; /* Dark Blue for text */
 }
 
-/* Social Links */
-.social-links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+.profile-card .radio-group input[type="radio"] {
+    margin-right: 5px;
 }
 
-.social-links a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #ff4757; /* Red hover effect */
-}
-
-/* Footer (if any) */
+/* Footer */
 .footer {
     width: 100%;
     text-align: center;
-    padding: 30px 0;
-    background: #222;
-    color: white;
-    margin-top: 50px;
+    padding: 10px;
+    background: #164863; /* Dark Blue for footer */
+    color: #9BBEC8; /* Light Gray-Blue for text */
+    margin-top: auto; /* Pushes footer to the bottom */
 }
 
-/* Media Queries for Mobile */
-@media (max-width: 700px) {
-    .profile-card {
-        width: 80%;
-        padding: 15px;
-    }
+.footer h4 {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
 
-    .nav-links ul li {
-        display: block;
-        padding: 10px 0;
-    }
-
+/* Responsive Design */
+@media (max-width: 600px) {
     .profile-card img {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
     }
 
-    h1, h2 {
-        font-size: 24px;
-    }
-
-    .social-links a {
-        font-size: 14px;
+    .profile-card input[type="text"],
+    .profile-card input[type="email"],
+    .profile-card textarea {
+        font-size: 13px;
     }
 }
