@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>My Favorites</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <title>Bookings</title>
 </head>
 
 <body>
     <header class="header">
         <nav>
-            <img src="home_logo.png" alt="Company Logo" style="height: 60px; width: 60px;">
+            <img src="../../Images/website_logo.png" alt="Company Logo" style="height: 60px; width: 60px;">
             <div class="nav-links">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
+                    <li><a href="Home.html">Studios</a></li>
+                    <li><a href="Myfaves.html">My Faves ❤️</a></li>
                     <li><a href="Mybook.html">Bookings</a></li>
                     <li><a href="profile.html"><span class="icon">👤</span></a></li>
                     <li><a href="#settings"><span class="icon">⚙️</span></a></li>
@@ -23,21 +24,15 @@
         </nav>
     </header>
 
-    <div class="text-box">
-        <h1>My Favorite Studios</h1>
-        <p>Your favorite studio spaces are listed below.</p>
-    </div>
+    <div id="bookingsContainer" class="bookings-container"></div>
 
-    <section class="studio-list" id="favoriteStudioList">
-        <!-- Favorite studios will be dynamically inserted here -->
-    </section>
 
     <footer class="footer">
         <h4>About Us</h4>
         <p>Find and book the best studios at affordable prices.</p>
     </footer>
 
-    <script type="module" src="Myfaves.js"></script>
+    <script src="../JS/Myfaves.js"></script>
 </body>
 
 </html>
