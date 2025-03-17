@@ -1,3 +1,7 @@
+import studios from "./Myfaves.js";
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // Get elements
     const formContainer = document.querySelector(".form-container");

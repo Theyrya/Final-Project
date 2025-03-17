@@ -152,10 +152,8 @@ nav img {
     margin-bottom: 10px;
     font-weight: 600;
 }
+
 /* Form Overlay */
-/* Hide the form initially */
-/* Form Overlay */
-/* Form Container Styling */
 .form-container {
     display: none;
     position: fixed;
@@ -231,36 +229,10 @@ nav img {
     }
 }
 
-
 /* Ensure scrolling doesn't affect the whole page */
 body.modal-open {
     overflow: hidden;
 }
-
-/* Responsive Design */
-@media (max-width: 500px) {
-    .form-container {
-        width: 90%;
-    }
-}
-
-
-/* Responsive Design */
-@media (max-width: 500px) {
-    .form-container {
-        width: 90%;
-    }
-}
-
-
-/* Responsive Design */
-@media (max-width: 500px) {
-    .form-container {
-        width: 90%;
-    }
-}
-
-/* Responsive Design */
 
 /* Adjust to two columns on smaller screens */
 @media (max-width: 900px) {

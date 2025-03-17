@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-
     <title>Studio Listings</title>
 </head>
 
@@ -22,26 +21,18 @@
                 </ul>
             </div>
         </nav>
-
-        <!-- <div class="text-box">
-            <h1>Find Your Perfect Studio</h1>
-            <p>Search and book the best studio spaces available in your city.</p>
-            <input type="text" id="searchBox" placeholder="Search studio-list...">
-            <button class="hero-btn">Filters</button>
-        </div> -->
     </header>
 
     <div class="text-box">
         <h1>Find Your Perfect Studio</h1>
         <p>Search and book the best studio spaces available in your city.</p>
         <input type="text" id="searchBox" placeholder="Search studio-list...">
-        <!-- <button class="hero-btn">Filters</button> -->
+        <select id="sortOptions" onchange="sortStudios(this.value)">
+            <option value="">Sort By</option>
+            <option value="price">Price (Low to High)</option>
+            <option value="capacity">Capacity (Low to High)</option>
+        </select>
     </div>
-    <select id="sortOptions" onchange="sortStudios(this.value)">
-        <option value="">Sort By</option>
-        <option value="price">Price (Low to High)</option>
-        <option value="capacity">Capacity (Low to High)</option>
-    </select>
 
     <div id="notification" class="notification"></div>
 
@@ -53,23 +44,21 @@
         <h4>About Us</h4>
         <p>Find and book the best studios at affordable prices.</p>
     </footer>
+
     <div id="settingsModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <h2>Settings</h2>
-    
             <div class="settings-section">
                 <h3>Account Settings</h3>
                 <p>Update your name, email, and password.</p>
                 <button class="settings-btn">Edit Account</button>
             </div>
-    
             <div class="settings-section">
                 <h3>Booking History</h3>
                 <p>View your past and upcoming bookings.</p>
                 <button class="settings-btn">View Bookings</button>
             </div>
-    
             <div class="settings-section">
                 <h3>Theme Selection</h3>
                 <p>Switch between Light and Dark Mode.</p>
@@ -77,17 +66,8 @@
             </div>
         </div>
     </div>
-   
 
-    <script>
-        
-
-
-
-    </script>
-
-    <script src="Myfaves.js"></script>
-
+    <script type="module" src="Myfaves.js"></script>
 </body>
 
 </html>
