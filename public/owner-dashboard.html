@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudioHub - OwnerDashboard</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <header class="header">
+    <nav>
+       <!-- <img src="website_logo.png" alt="Company Logo" style="height: 60px; width: 60px;"> -->
+        <div class="nav-links">
+            <ul>
+              <li><a href="owner-dashboard.html">Dashboard</a></li>
+              <li><a href="viewAsRenter.html">View as Renter</a></li>
+              <li><a href="ownerProfile.html">Profile</a></li>
+              <li><a href="login.html" id="logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+  <div class="container">
+    <h1>Owner Dashboard</h1>
+    <form id="studio-form">
+      <input type="text" id="studio-name" placeholder="Studio Name" required>
+      <input type="text" id="studio-address" placeholder="Address" required>
+      <input type="number" id="studio-area" placeholder="Area (sqm)" required>
+      <select id="studio-type" required>
+        <option value="art studio">Art Studio</option>
+        <option value="recording studio">Recording Studio</option>
+        <option value="dance studio">Dance Studio</option>
+        <option value="rehearsal space">Rehearsal Space</option>
+      </select>
+      <input type="number" id="studio-capacity" placeholder="Capacity" required>
+      <label>
+        <input type="checkbox" id="studio-parking"> Includes Parking
+      </label>
+      <label>
+        <input type="checkbox" id="studio-public-transport"> Reachable by Public Transport
+      </label>
+      <label>
+        <input type="checkbox" id="studio-availability" checked> Available to Rent
+      </label>
+      <select id="studio-rental-term" required>
+        <option value="hourly">Hourly</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      <input type="number" id="studio-rent" placeholder="rent" required>
+      <button type="submit">Add Studio</button>
+    </form>
+
+
+    <div id="edit-form" style="display: none;">
+      <h2>Edit Studio</h2>
+      <form id="edit-studio-form">
+        <input type="text" id="edit-studio-name" placeholder="Studio Name" required>
+        <input type="text" id="edit-studio-address" placeholder="Address" required>
+        <input type="number" id="edit-studio-area" placeholder="Area (sqm)" required>
+        <select id="edit-studio-type" required>
+          <option value="art studio">Art Studio</option>
+          <option value="recording studio">Recording Studio</option>
+          <option value="dance studio">Dance Studio</option>
+          <option value="rehearsal space">Rehearsal Space</option>
+        </select>
+        <input type="number" id="edit-studio-capacity" placeholder="Capacity" required>
+        <label>
+          <input type="checkbox" id="edit-studio-parking"> Includes Parking
+        </label>
+        <label>
+          <input type="checkbox" id="edit-studio-public-transport"> Reachable by Public Transport
+        </label>
+        <label>
+          <input type="checkbox" id="edit-studio-availability"> Available to Rent
+        </label>
+        <select id="edit-studio-rental-term" required>
+          <option value="hourly">Hourly</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+        <input type="number" id="edit-studio-rent" placeholder="rent" required>
+        <button type="submit">Update Studio</button>
+        <button type="button" onclick="cancelEdit()">Cancel</button>
+      </form>
+    </div>
+    
+  </div>
+  <div id="owned-studios"></div>
+
+
+
+  <footer class="footer">
+    <p>&copy; <span id="current-year"></span> StudioHub. All rights reserved.</p>
+    <p id="timestamp"></p>
+  </footer>
+
+  <script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/studios.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    renderOwnedStudios();
+  });
+  
+  document.getElementById('studio-form').addEventListener('submit', addStudio);
+  document.getElementById('edit-studio-form').addEventListener('submit', updateStudio);
+</script>
+
+
+
+</body>
+</html>

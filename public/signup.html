@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudioHub - Signup</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <header class="header">
+    <nav>
+       <!-- <img src="website_logo.png" alt="Company Logo" style="height: 60px; width: 60px;"> -->
+        <div class="nav-links">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+  
+
+
+  <div class="container">
+    <h1>Signup</h1>
+    <form id="signup-form">
+      <input type="text" id="signup-name" placeholder="Name" required>
+      <input type="email" id="signup-email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+      <input type="tel" id="signup-phone" placeholder="Phone" required pattern="[0-9]{10}">
+      <select id="signup-role">
+        <option value="renter">Renter</option>
+        <option value="owner">Owner</option>
+      </select>
+      <button type="submit">Signup</button>
+    </form>
+    <p id="error-msg"></p>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script></body>
+</html>

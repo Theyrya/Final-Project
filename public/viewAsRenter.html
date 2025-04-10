@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudioHub - viewAsRenter</title>
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <header class="header">
+    <nav>
+       <!-- <img src="website_logo.png" alt="Company Logo" style="height: 60px; width: 60px;"> -->
+        <div class="nav-links">
+            <ul>
+              <li><a href="owner-dashboard.html">Dashboard</a></li>
+              <li><a href="ownerProfile.html">Profile</a></li>
+              <li><a href="login.html" id="logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+<div class="text-box">
+  <h1>Find Your Perfect Studio</h1>
+  <p>Search and book the best studio spaces available in your city.</p>
+  <input type="text" id="searchBox" placeholder="Search studio-list...">
+  <!-- <button class="hero-btn">Filters</button> -->
+</div>
+    
+    
+    <!-- Filter Button -->
+    <button id="filter-modal-btn" onclick="openFilterModal()">Filter Studios</button>
+  
+    <!-- Filter Modal -->
+    <div id="filter-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeFilterModal()">&times;</span>
+        <h2>Filter Studios</h2>
+        <form id="filter-form">
+          <label for="filter-availability">Availability:</label>
+          <select id="filter-availability">
+            <option value="all">All</option>
+            <option value="available">Available</option>
+            <option value="not-available">Not Available</option>
+          </select>
+  
+          <label for="filter-rent-min">rent Range:</label>
+          <input type="number" id="filter-rent-min" placeholder="Min rent" min="0" oninput="validateRentRange()">
+          <input type="number" id="filter-rent-max" placeholder="Max rent" min="0" oninput="validateRentRange()">
+  
+          <label for="filter-parking">Parking:</label>
+          <select id="filter-parking">
+            <option value="all">All</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+  
+          <label for="filter-public-transport">Public Transport:</label>
+          <select id="filter-public-transport">
+            <option value="all">All</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+  
+          <button type="submit">Apply Filters</button>
+          <button type="button" onclick="clearFilters()">Clear Filters</button>
+        </form>
+      </div>
+    </div>
+  
+    <div id="studio-list"></div>
+
+  
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Render studios on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderStudios();
+    });
+  </script>
+
+<footer class="footer">
+  <p>&copy; <span id="current-year"></span> StudioHub. All rights reserved.</p>
+  <p id="timestamp"></p>
+</footer>
+
+</body>
+</html>

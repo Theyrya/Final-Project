@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudioHub - ownerProfile</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <header class="header">
+    <nav>
+       <!-- <img src="website_logo.png" alt="Company Logo" style="height: 60px; width: 60px;"> -->
+        <div class="nav-links">
+            <ul>
+                <li><a href="owner-dashboard.html">Dashboard</a></li>
+                <li><a href="viewAsRenter.html">View as Renter</a></li>
+              <li><a href="ownerProfile.html">Profile</a></li>
+              <li><a href="login.html" id="logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+  <div class="container">
+    <h1>Profile</h1>
+    <form id="profile-form">
+      <input type="text" id="profile-name" placeholder="Name" required>
+      <input type="email" id="profile-email" placeholder="Email" required>
+      <input type="tel" id="profile-phone" placeholder="Phone" required pattern="[0-9]{10}">
+      <input type="text" id="profile-role" placeholder="Role" readonly>
+
+      <!-- Notice hidden initially, only shown when in edit mode -->
+  <p id="role-notice" style="color: red; font-size: 14px; display: none;">
+  * Your role cannot be changed. Create a new account for a different role.
+</p>
+
+      <button type="submit">Update</button>
+    </form>
+  </div>
+  
+  <script src="js/script.js"></script>
+
+  <footer class="footer">
+    <p>&copy; <span id="current-year"></span> StudioHub. All rights reserved.</p>
+    <p id="timestamp"></p>
+  </footer>
+</body>
+</html>
