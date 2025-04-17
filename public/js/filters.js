@@ -9,13 +9,32 @@ document.addEventListener('DOMContentLoaded', () => {
 // Fetch all studios
 async function loadAllStudios() {
   try {
-    const response = await fetch('/api/studios');
-    if (!response.ok) throw new Error('Failed to load studios');
-    allStudios = await response.json();
-    renderStudios(allStudios); // Initial render
+    console.log('Attempting to fetch studios...'); // Debug log
+    const response = await fetch('/api/studios', {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    console.log('Response status:', response.status); // Debug log
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Server responded with ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    console.log('Received data:', data); // Debug log
+    if (!Array.isArray(data)) {
+      throw new Error('Received data is not an array');
+    }
+
+    allStudios = data;
+    renderStudios(allStudios);
+    
   } catch (error) {
-    console.error('Error loading studios:', error);
-    alert('Failed to load studios. Please refresh the page.');
+    console.error('Detailed error:', error);
+    alert(`Error loading studios: ${error.message}`);
   }
 }
 

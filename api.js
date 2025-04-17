@@ -150,7 +150,9 @@ router.put('/users/:email', (req, res) => {
 // GET all studios
 router.get('/studios', (req, res) => {
     const data = readData();
+    
     res.json(data.studios);
+    
 });
 
 // GET studios by owner
@@ -237,10 +239,10 @@ router.get('/bookings', (req, res) => {
     const data = readData();
     res.json(data.bookings);
 });
-router.get('/studios', (req, res) => {
-    const data = readData();
-    res.json({ success: true, studios: data.studios }); // Wrap in success object
-});
+// router.get('/studios', (req, res) => {
+//     const data = readData();
+//     res.json({ success: true, studios: data.studios }); // Wrap in success object
+// });
 // GET bookings by user
 router.get('/bookings/user/:email', (req, res) => {
     const email = req.params.email;
