@@ -119,6 +119,45 @@ function renderStudios(studios) {
     </div>
   `).join('');
 }
+// Add this to your existing filters.js or create a new file
+// Search function with debouncing
+let searchTimeout;
+
+document.getElementById('searchBox').addEventListener('input', (e) => {
+    const searchTerm = e.target.value.trim();
+    
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        if (searchTerm.length >= 2 || searchTerm.length === 0) {
+            searchStudios(searchTerm);
+        }
+    }, 300); // 300ms delay
+});
+
+async function searchStudios(searchTerm) {
+    const studioList = document.getElementById('studio-list');
+    
+    try {
+        // Show loading state
+        studioList.innerHTML = '<p>Searching studios...</p>';
+        
+        const response = await fetch(`/api/studios/search?q=${encodeURIComponent(searchTerm)}`);
+        
+        if (!response.ok) throw new Error('Search failed');
+        
+        const results = await response.json();
+        renderStudios(results);
+        
+    } catch (error) {
+        console.error('Search error:', error);
+        // Fallback to client-side search if API fails
+        const filtered = allStudios.filter(studio => 
+            studio.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            studio.address.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        renderStudios(filtered);
+    }
+}
 
 // Modal functions
 function openFilterModal() {

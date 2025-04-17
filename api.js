@@ -381,6 +381,79 @@ router.get('/studios/filter', (req, res) => {
 
     res.json(studios);
 });
+
+
+// ========== SEARCH ROUTES ========== //
+
+// GET search studios
+// Simple search endpoint
+router.get('/studios/search', (req, res) => {
+    const query = req.query.q || '';
+    const data = readData();
+    
+    if (!query.trim()) {
+        return res.json(data.studios); // Return all if empty search
+    }
+
+    const searchTerm = query.toLowerCase();
+    
+    const results = data.studios.filter(studio => {
+        // Search in name, address, and description
+        return (
+            studio.name.toLowerCase().includes(searchTerm) ||
+            studio.address.toLowerCase().includes(searchTerm) ||
+            (studio.description && studio.description.toLowerCase().includes(searchTerm))
+        );
+    });
+
+    res.json(results); // Return just the array of matching studios
+});
+
+// GET advanced search with filters
+router.get('/studios/advanced-search', (req, res) => {
+    const { q, minPrice, maxPrice, amenities } = req.query;
+    const data = readData();
+    
+    let results = data.studios;
+
+    // Text search
+    if (q && q.trim() !== '') {
+        const searchTerm = q.toLowerCase().trim();
+        results = results.filter(studio => {
+            const searchFields = [
+                studio.name,
+                studio.address,
+                studio.description || ''
+            ].join(' ').toLowerCase();
+            return searchFields.includes(searchTerm);
+        });
+    }
+
+    // Price range filter
+    if (minPrice) {
+        results = results.filter(studio => studio.rent >= parseInt(minPrice));
+    }
+    if (maxPrice) {
+        results = results.filter(studio => studio.rent <= parseInt(maxPrice));
+    }
+
+    // Amenities filter (comma-separated list)
+    if (amenities) {
+        const desiredAmenities = amenities.split(',').map(a => a.trim().toLowerCase());
+        results = results.filter(studio => {
+            if (!studio.amenities) return false;
+            const studioAmenities = studio.amenities.map(a => a.toLowerCase());
+            return desiredAmenities.every(da => studioAmenities.includes(da));
+        });
+    }
+
+    res.json({ 
+        success: true, 
+        results,
+        count: results.length
+    });
+});
+
 // ========== FAVORITE ROUTES ========== //
 
 // ... (keep all your existing code until the favorites routes)
