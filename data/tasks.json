@@ -1,1 +1,90 @@
-[]
+{
+  "users": [
+    {
+      "name": "Dhairya Rana1",
+      "email": "cloudofdhairya@gmail.com",
+      "phone": "3688863698",
+      "role": "renter"
+    },
+    {
+      "name": "Dhairya Rana",
+      "email": "d.rana215@mybvc.ca",
+      "phone": "3688863698",
+      "role": "owner"
+    },
+    {
+      "name": "asd",
+      "email": "asd1@gmail.com",
+      "phone": "1234123456",
+      "role": "renter"
+    }
+  ],
+  
+  "studios": [
+    {
+        "name": "bababababa123",
+        "address": "bababa",
+        "area": 123,
+        "type": "art studio",
+        "capacity": 10,
+        "parking": true,
+        "publicTransport": true,
+        "availability": true,
+        "rentalTerm": "hourly",
+        "rent": 9870,
+        "owner": "d.rana215@mybvc.ca",
+        "id": 1
+    },
+    {
+        "name": "galla",
+        "address": "bababa",
+        "area": 123,
+        "type": "art studio",
+        "capacity": 5,
+        "parking": true,
+        "publicTransport": true,
+        "availability": true,
+        "rentalTerm": "hourly",
+        "rent": 90,
+        "owner": "d.rana215@mybvc.ca",
+        "id": 2
+    },
+    {
+        "name": "bahubali",
+        "address": "bababa",
+        "area": 123,
+        "type": "art studio",
+        "capacity": 8,
+        "parking": true,
+        "publicTransport": true,
+        "availability": true,
+        "rentalTerm": "hourly",
+        "rent": 970,
+        "owner": "d.rana215@mybvc.ca",
+        "id": 3
+    }
+],
+  "bookings": [],
+  "favorites": [
+    {
+      "id": 1744485290317,
+      "studioId": 1,
+      "userEmail": "cloudofdhairya@gmail.com"
+    },
+    {
+      "id": 1744485394560,
+      "studioId": 2,
+      "userEmail": "cloudofdhairya@gmail.com"
+    },
+    {
+      "id": 1744553743743,
+      "studioId": "1744484191007",
+      "userEmail": "cloudofdhairya@gmail.com"
+    },
+    {
+      "id": 1744554027376,
+      "studioId": 1744484191007,
+      "userEmail": "cloudofdhairya@gmail.com"
+    }
+  ]
+}
