@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "name": "Dhairya Rana",
+      "name": "Dhairya Rana1",
       "email": "cloudofdhairya@gmail.com",
       "phone": "3688863698",
       "role": "renter"
@@ -13,8 +13,8 @@
       "role": "owner"
     },
     {
-      "name": "asd",
-      "email": "asd1@gmail.com",
+      "name": "kainaat",
+      "email": "k.@gmail.com",
       "phone": "1234123456",
       "role": "renter"
     },
@@ -23,6 +23,7 @@
       "email": "v@gmail.com",
       "phone": "6766766789",
       "role": "owner"
+<<<<<<< HEAD
     },
     {
       "name": "niriya niriya",
@@ -41,12 +42,14 @@
       "email": "niriya3@gmail.com",
       "phone": "7806000811",
       "role": "owner"
+=======
+>>>>>>> 2a19d7e0be2036c9ab115970721ebeb387a80998
     }
   ],
   "studios": [
     {
-      "name": "Cookin",
-      "address": "bababa",
+      "name": "Maria Art Space",
+      "address": "56 Skyview Lane, Calgary",
       "area": 123,
       "type": "art studio",
       "capacity": 5,
@@ -59,8 +62,8 @@
       "id": 2
     },
     {
-      "name": "Dance studio",
-      "address": "bababa",
+      "name": "Picture Perfect  Studio",
+      "address": "12 Ave Falconridge Blvd NE ",
       "area": 123,
       "type": "art studio",
       "capacity": 8,
@@ -68,12 +71,12 @@
       "publicTransport": true,
       "availability": true,
       "rentalTerm": "hourly",
-      "rent": 970,
+      "rent": 45,
       "owner": "d.rana215@mybvc.ca",
       "id": 3
     },
     {
-      "name": "Clashing crz photography",
+      "name": "Crazy Art",
       "address": "67 Castleridge Dr NE #5",
       "area": 124,
       "type": "art studio",
@@ -87,8 +90,8 @@
       "id": 1744864564080
     },
     {
-      "name": "kjhdhldf",
-      "address": "kjsdskd",
+      "name": "Dancing Bows",
+      "address": "122 Castle Shores, SE",
       "area": 123,
       "type": "dance studio",
       "capacity": 45,
@@ -96,7 +99,7 @@
       "publicTransport": true,
       "availability": true,
       "rentalTerm": "hourly",
-      "rent": 9807,
+      "rent": 65,
       "owner": "v@gmail.com",
       "id": 1744864773815
     },
