@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "name": "Dhairya Rana1",
+      "name": "Dhairya Rana",
       "email": "cloudofdhairya@gmail.com",
       "phone": "3688863698",
       "role": "renter"
@@ -27,7 +27,7 @@
   ],
   "studios": [
     {
-      "name": "galla",
+      "name": "Cookin",
       "address": "bababa",
       "area": 123,
       "type": "art studio",
@@ -41,7 +41,7 @@
       "id": 2
     },
     {
-      "name": "bahubali",
+      "name": "Dance studio",
       "address": "bababa",
       "area": 123,
       "type": "art studio",
