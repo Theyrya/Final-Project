@@ -27,20 +27,6 @@
   ],
   "studios": [
     {
-      "name": "bababababa123",
-      "address": "bababa",
-      "area": 123,
-      "type": "art studio",
-      "capacity": 10,
-      "parking": true,
-      "publicTransport": true,
-      "availability": true,
-      "rentalTerm": "hourly",
-      "rent": 9870,
-      "owner": "d.rana215@mybvc.ca",
-      "id": 1
-    },
-    {
       "name": "galla",
       "address": "bababa",
       "area": 123,
@@ -49,7 +35,7 @@
       "parking": true,
       "publicTransport": true,
       "availability": true,
-      "rentalTerm": "hourly",
+      "rentalTerm": "daily",
       "rent": 90,
       "owner": "d.rana215@mybvc.ca",
       "id": 2
@@ -105,11 +91,6 @@
       "userEmail": "cloudofdhairya@gmail.com"
     },
     {
-      "id": 1744485394560,
-      "studioId": 2,
-      "userEmail": "cloudofdhairya@gmail.com"
-    },
-    {
       "id": 1744553743743,
       "studioId": "1744484191007",
       "userEmail": "cloudofdhairya@gmail.com"
@@ -117,6 +98,16 @@
     {
       "id": 1744554027376,
       "studioId": 1744484191007,
+      "userEmail": "cloudofdhairya@gmail.com"
+    },
+    {
+      "id": 1745254506583,
+      "studioId": 1744864564080,
+      "userEmail": "d.rana215@mybvc.ca"
+    },
+    {
+      "id": 1745254566156,
+      "studioId": 3,
       "userEmail": "cloudofdhairya@gmail.com"
     }
   ]

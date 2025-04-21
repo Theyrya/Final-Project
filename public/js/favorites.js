@@ -31,33 +31,38 @@ async function addToFavorites(id) {
 }
 
 // Remove from Favorites
+// Remove from Favorites - Updated version
 async function removeFromFavorites(id) {
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  if (!currentUser) return;
-  
-  try {
-      const response = await fetch('/api/favorites', {
-          method: 'DELETE',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-              studioId: id, 
-              userEmail: currentUser.email 
-          })
-      });
-      
-      const data = await response.json();
-      
-      if (data.success) {
-          alert('Removed from favorites!');
-          renderFavorites();
-      } else {
-          alert('Failed to remove from favorites');
-      }
-  } catch (error) {
-      console.error('Remove favorite error:', error);
-      alert('Failed to remove from favorites. Please try again.');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        alert('Please log in to manage favorites.');
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/favorites', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                studioId: id, 
+                userEmail: currentUser.email 
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert('Removed from favorites!');
+            renderFavorites();
+        } else {
+            alert(data.message || 'Failed to remove from favorites');
+        }
+    } catch (error) {
+        console.error('Remove favorite error:', error);
+        alert('Failed to remove from favorites. Please try again.');
+    }
   }
-}
 
 // Render Favorites
 async function renderFavorites() {

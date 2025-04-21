@@ -207,9 +207,9 @@ router.put('/studios/:id', (req, res) => {
 
 // DELETE studio
 // DELETE favorite - WORKING VERSION
-router.delete('/favorites/:studioId/:userEmail', (req, res) => {
-    const studioId = parseInt(req.params.studioId); // Convert to number
-    const userEmail = req.params.userEmail;
+// DELETE favorite - Updated version
+router.delete('/favorites', (req, res) => {
+    const { studioId, userEmail } = req.body; // Get from request body instead of params
     const data = readData();
     
     // Find the exact favorite to remove
@@ -231,7 +231,6 @@ router.delete('/favorites/:studioId/:userEmail', (req, res) => {
         message: 'Favorite removed successfully'
     });
 });
-
 // ========== BOOKING ROUTES ========== //
 
 // GET all bookings
