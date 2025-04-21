@@ -38,7 +38,7 @@
     },
     {
       "name": "Niriya Niriya",
-      "email": "niriya3699@gmail.com",
+      "email": "niriya3@gmail.com",
       "phone": "7806000811",
       "role": "owner"
     }
@@ -99,6 +99,20 @@
       "rent": 9807,
       "owner": "v@gmail.com",
       "id": 1744864773815
+    },
+    {
+      "name": "Creative Talent Studio",
+      "address": "142 Green Avenue SE",
+      "area": 1000,
+      "type": "rehearsal space",
+      "capacity": 20,
+      "parking": true,
+      "publicTransport": false,
+      "availability": true,
+      "rentalTerm": "monthly",
+      "rent": 300,
+      "owner": "niriya3@gmail.com",
+      "id": 1745263098821
     }
   ],
   "bookings": [],
@@ -127,6 +141,16 @@
       "id": 1745254566156,
       "studioId": 3,
       "userEmail": "cloudofdhairya@gmail.com"
+    },
+    {
+      "id": 1745262950377,
+      "studioId": 2,
+      "userEmail": "niriya@gmail.com"
+    },
+    {
+      "id": 1745264054762,
+      "studioId": 3,
+      "userEmail": "niriya3@gmail.com"
     }
   ]
 }

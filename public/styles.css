@@ -782,6 +782,7 @@ button[type="submit"] {
 }
 
 #edit-studio-form {
+  left: 380px;
   background: #FFFFFF;
   width: 90%;
   max-width: 700px;
@@ -897,6 +898,7 @@ button[type="button"]:hover {
   box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.15);
   background-color: white;
 }
+
 
 @keyframes fadeIn {
   from { opacity: 0; }

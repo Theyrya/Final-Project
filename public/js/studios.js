@@ -202,3 +202,14 @@ async function renderStudios() {
       alert('Failed to load studios. Please try again.');
   }
 }
+
+function cancelEdit() {
+    const editForm = document.getElementById('edit-form');
+    const addForm = document.getElementById('studio-form');
+    
+    editForm.style.display = 'none';
+    document.getElementById('edit-studio-form').reset();
+  }
+  
+  // Make sure the function is available globally
+  window.cancelEdit = cancelEdit;
