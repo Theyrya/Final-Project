@@ -606,125 +606,266 @@ window.onclick = function (event) {
 
 
 
-// Profile Page Script
-document.addEventListener('DOMContentLoaded', function () {
-  // ✅ Check if we are on the profile page
+// // Profile Page Script
+// document.addEventListener('DOMContentLoaded', function () {
+//   // ✅ Check if we are on the profile page
+//   if (!document.getElementById('profile-form')) return;
+
+//   // ✅ Retrieve the current user from localStorage
+//   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+//   console.log("Current User Data:", currentUser); // Debugging
+
+//   // ✅ Redirect to login if no user is found
+//   if (!currentUser || !currentUser.email) {
+//       console.warn("No user found. Redirecting to login...");
+//       window.location.href = 'login.html';
+//       return;
+//   }
+
+//   // ✅ Populate profile fields
+//   document.getElementById('profile-name').value = currentUser.name || '';
+//   document.getElementById('profile-email').value = currentUser.email || '';
+//   document.getElementById('profile-phone').value = currentUser.phone || '';
+//   document.getElementById('profile-role').value = currentUser.role || 'Not Assigned';
+
+//   // ✅ Make the role field read-only
+//   document.getElementById('profile-role').readOnly = true;
+
+//   // ✅ Set initial readonly state for editable fields
+//   toggleEditMode(false);
+//   document.querySelector('#profile-form button[type="submit"]').textContent = 'Edit Profile';
+
+//   // ✅ Form submission handler
+//   document.getElementById('profile-form').addEventListener('submit', function (e) {
+//       e.preventDefault();
+//       const submitBtn = document.querySelector('#profile-form button[type="submit"]');
+
+//       if (submitBtn.textContent === 'Edit Profile') {
+//           // Switch to edit mode
+//           toggleEditMode(true);
+//           submitBtn.textContent = 'Update Profile';
+//       } else {
+//           // Validate and save changes
+//           if (validateAndSaveProfile(currentUser)) {
+//               toggleEditMode(false);
+//               submitBtn.textContent = 'Edit Profile';
+//               alert('Profile updated successfully!');
+//           }
+//       }
+//   });
+
+//   // ✅ Logout functionality
+//   document.getElementById('logout').addEventListener('click', function () {
+//       localStorage.removeItem('currentUser'); // Remove session
+//       window.location.href = 'login.html'; // Redirect to login
+//   });
+// });
+
+// // 🔹 Toggle edit mode (only allows name, email, phone)
+// function toggleEditMode(editMode) {
+//   document.getElementById('profile-name').readOnly = !editMode;
+//   document.getElementById('profile-email').readOnly = !editMode;
+//   document.getElementById('profile-phone').readOnly = !editMode;
+
+//   // Toggle the visibility of the mode change notice
+//   const modeNotice = document.getElementById('mode-notice');
+//   if (modeNotice) {
+//       modeNotice.style.display = editMode ? 'block' : 'none';  // Show or hide notice based on editMode
+//   }
+
+//   // Toggle the visibility of the role change notice
+//   const roleNotice = document.getElementById('role-notice');
+//   if (roleNotice) {
+//       roleNotice.style.display = editMode ? 'block' : 'none';  // Show or hide notice based on editMode
+//   }
+// }
+
+// // 🔹 Validate and save profile changes
+// function validateAndSaveProfile(currentUser) {
+//   const newEmail = document.getElementById('profile-email').value.trim();
+//   const newName = document.getElementById('profile-name').value.trim();
+//   const newPhone = document.getElementById('profile-phone').value.trim();
+
+//   // ✅ Email validation
+//   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail)) {
+//       alert('Please enter a valid email address');
+//       return false;
+//   }
+
+//   // ✅ Check if email changed
+//   if (newEmail !== currentUser.email) {
+//       const users = JSON.parse(localStorage.getItem('users')) || [];
+//       const emailExists = users.some(user => user.email === newEmail && user.email !== currentUser.email);
+
+//       if (emailExists) {
+//           alert('This email is already registered by another user');
+//           return false;
+//       }
+//   }
+
+//   // ✅ Update user data
+//   const updatedUser = {
+//       ...currentUser,
+//       name: newName,
+//       email: newEmail,
+//       phone: newPhone
+//   };
+
+//   // ✅ Update storage
+//   updateUserData(currentUser.email, updatedUser);
+//   return true;
+// }
+
+// // 🔹 Update user data in all storage locations
+// function updateUserData(oldEmail, updatedUser) {
+//   // Update current user
+//   localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+
+//   // Update in users array
+//   const users = JSON.parse(localStorage.getItem('users')) || [];
+//   const updatedUsers = users.map(user => user.email === oldEmail ? updatedUser : user);
+//   localStorage.setItem('users', JSON.stringify(updatedUsers));
+// }
+
+
+
+document.addEventListener('DOMContentLoaded', async function () {
+  // Check if we're on the profile page
   if (!document.getElementById('profile-form')) return;
 
-  // ✅ Retrieve the current user from localStorage
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  console.log("Current User Data:", currentUser); // Debugging
+  // Debugging localStorage
+  console.log('Current localStorage:', localStorage);
 
-  // ✅ Redirect to login if no user is found
-  if (!currentUser || !currentUser.email) {
-      console.warn("No user found. Redirecting to login...");
-      window.location.href = 'login.html';
-      return;
+  // Get current user from localStorage
+  let currentUser;
+  try {
+    currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser || !currentUser.email) {
+      throw new Error('No user logged in');
+    }
+  } catch (error) {
+    console.error('Error getting current user:', error);
+    window.location.href = 'login.html';
+    return;
   }
 
-  // ✅ Populate profile fields
-  document.getElementById('profile-name').value = currentUser.name || '';
-  document.getElementById('profile-email').value = currentUser.email || '';
-  document.getElementById('profile-phone').value = currentUser.phone || '';
-  document.getElementById('profile-role').value = currentUser.role || 'Not Assigned';
+  // Load profile data
+  try {
+    console.log('Fetching profile for:', currentUser.email);
+    const response = await fetch(`/api/users/current?email=${encodeURIComponent(currentUser.email)}`);
+    
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to fetch profile');
+    }
 
-  // ✅ Make the role field read-only
-  document.getElementById('profile-role').readOnly = true;
+    const { user } = await response.json();
+    console.log('Received user data:', user);
 
-  // ✅ Set initial readonly state for editable fields
-  toggleEditMode(false);
-  document.querySelector('#profile-form button[type="submit"]').textContent = 'Edit Profile';
+    if (!user) throw new Error('User data not found');
 
-  // ✅ Form submission handler
-  document.getElementById('profile-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const submitBtn = document.querySelector('#profile-form button[type="submit"]');
+    // Update localStorage with fresh data
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    currentUser = user;
 
-      if (submitBtn.textContent === 'Edit Profile') {
-          // Switch to edit mode
-          toggleEditMode(true);
-          submitBtn.textContent = 'Update Profile';
-      } else {
-          // Validate and save changes
-          if (validateAndSaveProfile(currentUser)) {
-              toggleEditMode(false);
-              submitBtn.textContent = 'Edit Profile';
-              alert('Profile updated successfully!');
-          }
+    // Populate form fields
+    document.getElementById('profile-name').value = user.name || '';
+    document.getElementById('profile-email').value = user.email || '';
+    document.getElementById('profile-phone').value = user.phone || '';
+    document.getElementById('profile-role').value = user.role || 'Not Assigned';
+
+    // Set initial state
+    document.getElementById('profile-role').readOnly = true;
+    toggleEditMode(false);
+    document.querySelector('#profile-form button[type="submit"]').textContent = 'Edit Profile';
+
+  } catch (error) {
+    console.error('Profile load error:', error);
+    alert(`Error: ${error.message}`);
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Form submission handler
+  document.getElementById('profile-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const submitBtn = document.querySelector('#profile-form button[type="submit"]');
+
+    if (submitBtn.textContent === 'Edit Profile') {
+      toggleEditMode(true);
+      submitBtn.textContent = 'Update Profile';
+      return;
+    }
+
+    try {
+      const updates = {
+        name: document.getElementById('profile-name').value.trim(),
+        email: document.getElementById('profile-email').value.trim(),
+        phone: document.getElementById('profile-phone').value.trim()
+      };
+
+      // Validate email
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(updates.email)) {
+        throw new Error('Please enter a valid email address');
       }
+
+      // Validate phone (10 digits)
+      if (!/^\d{10}$/.test(updates.phone)) {
+        throw new Error('Please enter a 10-digit phone number');
+      }
+
+      console.log('Sending update:', updates);
+      const response = await fetch(`/api/users/${encodeURIComponent(currentUser.email)}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: updates.name,
+          phone: updates.phone,
+          newEmail: updates.email !== currentUser.email ? updates.email : undefined
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Update failed');
+      }
+
+      const { user: updatedUser } = await response.json();
+      console.log('Update successful:', updatedUser);
+
+      // Update local storage
+      localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+      currentUser = updatedUser;
+
+      toggleEditMode(false);
+      submitBtn.textContent = 'Edit Profile';
+      alert('Profile updated successfully!');
+
+    } catch (error) {
+      console.error('Update error:', error);
+      alert(`Update failed: ${error.message}`);
+    }
   });
 
-  // ✅ Logout functionality
-  document.getElementById('logout').addEventListener('click', function () {
-      localStorage.removeItem('currentUser'); // Remove session
-      window.location.href = 'login.html'; // Redirect to login
+  // Logout functionality
+  document.getElementById('logout').addEventListener('click', function (e) {
+    e.preventDefault();
+    localStorage.removeItem('currentUser');
+    window.location.href = 'login.html';
   });
 });
 
-// 🔹 Toggle edit mode (only allows name, email, phone)
 function toggleEditMode(editMode) {
   document.getElementById('profile-name').readOnly = !editMode;
   document.getElementById('profile-email').readOnly = !editMode;
   document.getElementById('profile-phone').readOnly = !editMode;
 
-  // Toggle the visibility of the mode change notice
-  const modeNotice = document.getElementById('mode-notice');
-  if (modeNotice) {
-      modeNotice.style.display = editMode ? 'block' : 'none';  // Show or hide notice based on editMode
-  }
-
-  // Toggle the visibility of the role change notice
-  const roleNotice = document.getElementById('role-notice');
-  if (roleNotice) {
-      roleNotice.style.display = editMode ? 'block' : 'none';  // Show or hide notice based on editMode
-  }
-}
-
-// 🔹 Validate and save profile changes
-function validateAndSaveProfile(currentUser) {
-  const newEmail = document.getElementById('profile-email').value.trim();
-  const newName = document.getElementById('profile-name').value.trim();
-  const newPhone = document.getElementById('profile-phone').value.trim();
-
-  // ✅ Email validation
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail)) {
-      alert('Please enter a valid email address');
-      return false;
-  }
-
-  // ✅ Check if email changed
-  if (newEmail !== currentUser.email) {
-      const users = JSON.parse(localStorage.getItem('users')) || [];
-      const emailExists = users.some(user => user.email === newEmail && user.email !== currentUser.email);
-
-      if (emailExists) {
-          alert('This email is already registered by another user');
-          return false;
-      }
-  }
-
-  // ✅ Update user data
-  const updatedUser = {
-      ...currentUser,
-      name: newName,
-      email: newEmail,
-      phone: newPhone
-  };
-
-  // ✅ Update storage
-  updateUserData(currentUser.email, updatedUser);
-  return true;
-}
-
-// 🔹 Update user data in all storage locations
-function updateUserData(oldEmail, updatedUser) {
-  // Update current user
-  localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-
-  // Update in users array
-  const users = JSON.parse(localStorage.getItem('users')) || [];
-  const updatedUsers = users.map(user => user.email === oldEmail ? updatedUser : user);
-  localStorage.setItem('users', JSON.stringify(updatedUsers));
+  const notices = document.querySelectorAll('#mode-notice, #role-notice');
+  notices.forEach(notice => {
+    if (notice) notice.style.display = editMode ? 'block' : 'none';
+  });
 }
 
 
