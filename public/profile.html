@@ -23,44 +23,33 @@
     </nav>
 </header>
 
-  <div class="container">
-    <h1>Profile</h1>
-    <form id="profile-form">
+<div class="container">
+  <h1>Profile</h1>
+  <form id="profile-form">
 
-      <p id="mode-notice" style="color: green; font-size: 16px; display: none; text-align: center; padding: 10px;">
-        -- EDIT MODE ON --
-      </p>
+    <p id="mode-notice" style="color: green; font-size: 16px; display: none; text-align: center; padding: 10px;">
+      -- EDIT MODE ON --
+    </p>
+    
+    <input type="text" id="profile-name" placeholder="Name" required>
+    <input type="email" id="profile-email" placeholder="Email" required>
+    <input type="tel" id="profile-phone" placeholder="Phone" required pattern="[0-9]{10}">
+    <input type="text" id="profile-role" placeholder="Role" readonly>
 
-      <input type="text" id="profile-name" placeholder="Name" required>
-      <input type="email" id="profile-email" placeholder="Email" required>
-      <input type="tel" id="profile-phone" placeholder="Phone" required pattern="[0-9]{10}">
-      <input type="text" id="profile-role" placeholder="Role" readonly>
+    <!-- Notice hidden initially, only shown when in edit mode -->
+<p id="role-notice" style="color: red; font-size: 14px; display: none;">
+* Your role cannot be changed. Create a new account for a different role.
+</p>
 
-      <!-- Notice hidden initially, only shown when in edit mode -->
-      <p id="role-notice" style="color: red; font-size: 14px; display: none;">
-        * Your role cannot be changed. Create a new account for a different role.
-      </p>
+    <button type="submit">Update</button>
+  </form>
+</div>
 
-      <button type="submit">Update</button>
-    </form>
-  </div>
-  
+<script src="js/script.js"></script>
 
-  <footer class="footer">
-    <p>&copy; <span id="current-year"></span> StudioHub. All rights reserved.</p>
-    <p id="timestamp"></p>
-  </footer>
-  <script src="js/utils.js"></script>
-<script src="js/auth.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const currentUser = getCurrentUser();
-    if (currentUser) {
-      document.getElementById('profile-name').value = currentUser.name || '';
-      document.getElementById('profile-email').value = currentUser.email || '';
-      document.getElementById('profile-phone').value = currentUser.phone || '';
-    }
-  });
-</script>
+<footer class="footer">
+  <p>&copy; <span id="current-year"></span> StudioHub. All rights reserved.</p>
+  <p id="timestamp"></p>
+</footer>
 </body>
 </html>
