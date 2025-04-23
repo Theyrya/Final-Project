@@ -23,27 +23,6 @@
       "email": "v@gmail.com",
       "phone": "6766766789",
       "role": "owner"
-<<<<<<< HEAD
-    },
-    {
-      "name": "niriya niriya",
-      "email": "niriya@gmail.com",
-      "phone": "7806000811",
-      "role": "renter"
-    },
-    {
-      "name": "Niriya .",
-      "email": "niriya1@gmail.com",
-      "phone": "7806000811",
-      "role": "owner"
-    },
-    {
-      "name": "Niriya Niriya",
-      "email": "niriya3@gmail.com",
-      "phone": "7806000811",
-      "role": "owner"
-=======
->>>>>>> 2a19d7e0be2036c9ab115970721ebeb387a80998
     }
   ],
   "studios": [
