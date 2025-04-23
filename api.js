@@ -11,7 +11,7 @@ const readData = () => {
         const data = fs.readFileSync(dataPath, 'utf8');
         return JSON.parse(data);
     } catch (err) {
-        return { users: [], studios: [], bookings: [], favorites: [] };
+        return { users: [], studios: [], favorites: [] };
     }
 };
 
@@ -59,7 +59,7 @@ const ensureDataFileExists = () => {
         fs.mkdirSync(dir, { recursive: true });
     }
     if (!fs.existsSync(dataPath)) {
-        writeData({ users: [], studios: [], bookings: [], favorites: [] });
+        writeData({ users: [], studios: [], favorites: [] });
     }
 };
 ensureDataFileExists();  // Creates file if missing

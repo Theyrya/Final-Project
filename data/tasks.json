@@ -115,7 +115,6 @@
       "id": 1745263098821
     }
   ],
-  "bookings": [],
   "favorites": [
     {
       "id": 1744485290317,
@@ -133,11 +132,6 @@
       "userEmail": "cloudofdhairya@gmail.com"
     },
     {
-      "id": 1745254506583,
-      "studioId": 1744864564080,
-      "userEmail": "d.rana215@mybvc.ca"
-    },
-    {
       "id": 1745254566156,
       "studioId": 3,
       "userEmail": "cloudofdhairya@gmail.com"
@@ -151,6 +145,12 @@
       "id": 1745264054762,
       "studioId": 3,
       "userEmail": "niriya3@gmail.com"
+    },
+    {
+      "id": 1745430284378,
+      "studioId": 1744864773815,
+      "userEmail": "cloudofdhairya@gmail.com"
     }
-  ]
+  ],
+  "bookings": []
 }

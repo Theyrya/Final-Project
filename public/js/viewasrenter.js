@@ -114,8 +114,7 @@ function renderStudios(studios) {
       <p>Address: ${studio.address}</p>
       <p>Rent: $${studio.rent}/hr</p>
       <p>Availability: ${studio.availability ? 'Available' : 'Not Available'}</p>
-      <button onclick="addToFavorites(${studio.id})">Add to Favorites</button>
-      <button onclick="bookStudio(${studio.id})">Book</button>
+      
     </div>
   `).join('');
 }
