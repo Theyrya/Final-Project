@@ -93,6 +93,13 @@ async function renderFavorites() {
                   <h3>${studio.name}</h3>
                   <p>${studio.address}</p>
                   <p>Rent: $${studio.rent}/hr</p>
+                  <p>Area: ${studio.area}m square</p>
+                  <p>Type: ${studio.type}</p>
+                  <p>Capacity: ${studio.capacity}</p>
+                  <p>Parking: ${studio.parking}</p>
+                  <p>Public Transportation: ${studio.publicTransport}</p>
+                  <p>Available: ${studio.availability}</p>
+                  <p>Rental Term: ${studio.rentalTerm}</p>
                   <button onclick="bookStudio(${studio.id})">Book</button>
                   <button onclick="removeFromFavorites(${studio.id})">Remove from Favorites</button>
               </div>

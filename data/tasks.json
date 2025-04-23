@@ -41,6 +41,18 @@
       "email": "niriya3@gmail.com",
       "phone": "7806000811",
       "role": "owner"
+    },
+    {
+      "name": "owner",
+      "email": "owner@gmail.com",
+      "phone": "3456789011",
+      "role": "owner"
+    },
+    {
+      "name": "Renter 1",
+      "email": "renter@gmail.com",
+      "phone": "3688863698",
+      "role": "renter"
     }
   ],
   "studios": [
@@ -113,6 +125,20 @@
       "rent": 300,
       "owner": "niriya3@gmail.com",
       "id": 1745263098821
+    },
+    {
+      "name": "Clashing crz photography",
+      "address": "67 Castleridge Dr NE #5",
+      "area": 123,
+      "type": "art studio",
+      "capacity": 100,
+      "parking": true,
+      "publicTransport": false,
+      "availability": true,
+      "rentalTerm": "hourly",
+      "rent": 100,
+      "owner": "owner@gmail.com",
+      "id": 1745441196672
     }
   ],
   "favorites": [
@@ -149,6 +175,11 @@
     {
       "id": 1745430284378,
       "studioId": 1744864773815,
+      "userEmail": "cloudofdhairya@gmail.com"
+    },
+    {
+      "id": 1745441412496,
+      "studioId": 2,
       "userEmail": "cloudofdhairya@gmail.com"
     }
   ],
