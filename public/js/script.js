@@ -1,3 +1,12 @@
+//          F
+//          R
+//          O
+//          N
+//          T
+//          E
+//          N
+//          D
+
 
 // Initialize data in localStorage if it doesn't exist
 if (!localStorage.getItem('users')) {

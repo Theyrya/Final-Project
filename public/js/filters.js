@@ -86,7 +86,8 @@ function filterStudios() {
   });
 
   renderStudios(filteredStudios);
-  closeFilterModal(); // Close modal after filtering
+  closeFilterModal(); 
+  // Close modal after filtering
 }
 
 // Clear filters
@@ -120,7 +121,6 @@ function renderStudios(studios) {
   `).join('');
 }
 
-// rendering the studios from view as renter 
 /*
 function renderviewasowner(studios) {
   const studioList = document.getElementById('studio-list');

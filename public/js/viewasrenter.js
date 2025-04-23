@@ -119,28 +119,7 @@ function renderStudios(studios) {
   `).join('');
 }
 
-// rendering the studios from view as renter 
-/*
-function renderviewasowner(studios) {
-  const studioList = document.getElementById('studio-list');
-  
-  if (!studios || studios.length === 0) {
-    studioList.innerHTML = '<p>No studios found matching your filters.</p>';
-    return;
-  }
 
-  studioList.innerHTML = studios.map(studio => `
-    <div class="studio-card">
-      <h3>${studio.name}</h3>
-      <p>Address: ${studio.address}</p>
-      <p>Rent: $${studio.rent}/hr</p>
-      <p>Availability: ${studio.availability ? 'Available' : 'Not Available'}</p>
-      <button onclick="addToFavorites(${studio.id})">Add to Favorites</button>
-      <button onclick="bookStudio(${studio.id})">Book</button>
-    </div>
-  `).join('');
-}
-*/
 // Add this to your existing filters.js or create a new file
 // Search function with debouncing
 let searchTimeout;

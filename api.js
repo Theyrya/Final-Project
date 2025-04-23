@@ -36,7 +36,7 @@ const initializeData = () => {
             needsUpdate = true;
         }
         if (!Array.isArray(data.bookings)) {
-            data.bookings = [];
+            data.bookings = []; 
             needsUpdate = true;
         }
         if (!Array.isArray(data.favorites)) {
@@ -302,7 +302,6 @@ router.delete('/bookings/:id', (req, res) => {
 
 
 //delete studios by owner
-// In your server route:
 router.delete('/studios/:id', (req, res) => {
     console.log('Delete request received for ID:', req.params.id);
     const id = parseInt(req.params.id);
